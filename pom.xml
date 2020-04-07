@@ -14,25 +14,36 @@
     <module>xftm-consumer</module>
     <module>xftm-config</module>
     <module>xftm-gateway</module>
+    <module>xftm-api</module>
+    <module>common-service</module>
   </modules>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
     <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
     <spring-cloud-Alibaba.version>2.2.0.RELEASE</spring-cloud-Alibaba.version>
+    <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
+    <druid.version>1.1.21</druid.version>
+    <mybatis.generator.version>1.3.6</mybatis.generator.version>
+    <mysql.connector.version>5.1.34</mysql.connector.version>
+    <logstash.verison>6.3</logstash.verison>
+    <dubbo.version>2.7.4.1</dubbo.version>
+    <nacos.version>1.1.4</nacos.version>
+    <sentinel.version>1.7.1</sentinel.version>
+    <pagehelper.version>1.2.13</pagehelper.version>
+    <elastic-job.version>2.1.5</elastic-job.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.4.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-
-
-
+  <!--<parent>-->
+    <!--<groupId>org.springframework.boot</groupId>-->
+    <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--<version>2.2.2.RELEASE</version>-->
+    <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+  <!--</parent>-->
 
 
 
@@ -53,11 +64,11 @@
         <scope>import</scope>
       </dependency>
 
-      <!--健康检查依赖于此包-->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-      </dependency>
+      <!--&lt;!&ndash;健康检查依赖于此包&ndash;&gt;-->
+      <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-actuator</artifactId>-->
+      <!--</dependency>-->
 
 
       <!--spring boot 此jar 子项目无法继承-->
@@ -67,11 +78,11 @@
 <!--        <version>${spring-boot.version}</version>-->
 <!--      </dependency>-->
       <!--测试boot-->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-      </dependency>
+      <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-test</artifactId>-->
+        <!--<scope>test</scope>-->
+      <!--</dependency>-->
 
 <!--      <dependency>  此jar 子项目无法继承-->
 <!--        <groupId>org.springframework.cloud</groupId>-->
@@ -82,11 +93,11 @@
 <!--        <artifactId>nacos-client</artifactId>-->
 <!--      </dependency>-->
     <!--config-->
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        <version>0.2.1.RELEASE</version>
-      </dependency>
+      <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+        <!--<version>0.2.1.RELEASE</version>-->
+      <!--</dependency>-->
 
 
     </dependencies>

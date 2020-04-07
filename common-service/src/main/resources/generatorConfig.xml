@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--<classPathEntry location="/Users/yu3/IdeaProjects/ejob-dev/src/main/resources/jar/ojdbc6.jar"/>-->
+    <!--<classPathEntry location="C:\IDEA\ejob\src\main\resources\jar\ojdbc6.jar"/>-->
+    <!--<classPathEntry location="/Users/yu3/.m2/repository/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar" />-->
+
+    <classPathEntry location="/Users/yu3/.m2/repository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>
+
+    <context id="oracleGenerator" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <!-- 通过type指定自定义的注释-->
+        <commentGenerator type="org.xftm.common.util.CustomCommentGenerator">
+
+            <!-- 不要开启，否则将不会使用自定义注释 -->
+            <!-- <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"> -->
+        </commentGenerator>
+
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@10.10.1.156:1521:orcl"-->
+                        <!--userId="TMDH"-->
+                        <!--password="TMDH2016!!!!"-->
+        <!--&gt;-->
+            <!--<property name="remarksReporting" value="true"></property>-->
+
+        <!--</jdbcConnection>-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.mybatis.tmdh.bean" targetProject="src/main/java" >-->
+
+            <!--<property name="enableSubPackages" value="false"/>-->
+        <!--</javaModelGenerator>-->
+
+        <!--<sqlMapGenerator targetPackage="sql.tmdh" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.mybatis.tmdh.mapper" targetProject="src/main/java" >-->
+
+            <!--<property name="enableSubPackages" value="false"/>-->
+        <!--</javaClientGenerator>-->
+
+        <!--<table schema="TMDH" tableName ="TQHK01"/>-->
+        <!--<table schema="TMDH" tableName ="BBT026"/>-->
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@10.10.1.151:1521:orcl"-->
+                        <!--userId="TMZL"-->
+                        <!--password="TMZLa163com2016"-->
+        <!--&gt;-->
+            <!--<property name="remarksReporting" value="true"></property>-->
+
+        <!--</jdbcConnection>-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.mybatis.tmzl.bean" targetProject="src/main/java" >-->
+
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</javaModelGenerator>-->
+
+        <!--<sqlMapGenerator targetPackage="sql.tmzl" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.mybatis.tmzl.mapper" targetProject="src/main/java" >-->
+
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</javaClientGenerator>-->
+        <!--<table tableName ="PBOC_COMPANY"/>-->
+        <!--<table tableName ="BAM006"/>-->
+        <!--
+        <table tableName ="BAT001"/>
+        <table tableName ="BAT002"/>
+        <table tableName ="BAT003"/>
+        <table tableName ="BAT004"/>
+        <table tableName ="BAT005"/>
+        <table tableName ="BAT006"/>
+        <table tableName ="BAT007"/>
+        <table tableName ="BAT008"/>
+        <table tableName ="BAT009"/>
+        <table tableName ="BAT022"/>
+        <table tableName ="BAT011"/> -->
+
+               <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+                               <!--connectionURL="jdbc:oracle:thin:@10.10.80.15:1521:orcl"-->
+                               <!--userId="p_ccrs"-->
+                               <!--password="iphonex6666"-->
+               <!--&gt;-->
+                   <!--<property name="remarksReporting" value="true"></property>-->
+
+               <!--</jdbcConnection>-->
+
+               <!--<javaModelGenerator targetPackage="com.xftm.ejob.mybatis.pccrs.bean" targetProject="src/main/java" >-->
+
+                   <!--<property name="enableSubPackages" value="true"/>-->
+               <!--</javaModelGenerator>-->
+
+               <!--<sqlMapGenerator targetPackage="sql.pccrs" targetProject="src/main/resources" />-->
+
+               <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.mybatis.pccrs.mapper" targetProject="src/main/java" >-->
+
+                   <!--<property name="enableSubPackages" value="true"/>-->
+               <!--</javaClientGenerator>-->
+        <!--<table tableName ="cron_job_log"/>-->
+               <!--<table tableName ="V_P_CRS_PROFESSION_INFO"/>-->
+
+               <!--<table tableName ="V_P_CRS_LOAN_SPEC_EVENT"/>-->
+               <!--<table tableName ="V_P_CRS_LOAN_EVENT_CHANGE"/>-->
+               <!--<table tableName ="V_P_CRS_LOAN_DTL"/>-->
+               <!--<table tableName ="V_P_CRS_IDENTITY_INFO"/>-->
+               <!--<table tableName ="V_P_CRS_HISTORY_OVERDUE"/>-->
+               <!--<table tableName ="V_P_CRS_GUARANTEE_INFO"/>-->
+               <!--<table tableName ="V_P_CRS_ADRESS_INFO"/>-->
+
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://10.10.80.20:3306/ejob"
+        userId="root"
+        password="XcodeV1V" >
+
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="org.xftm.common.dao.base.bean" targetProject="common-service/src/main/java" />
+
+        <sqlMapGenerator targetPackage="sql.base" targetProject="common-service/src/main/resources" />
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.xftm.common.dao.base.mapper" targetProject="common-service/src/main/java" />
+
+        <table tableName ="JOB_EXECUTION_LOG"/>
+        <table tableName ="JOB_STATUS_TRACE_LOG"/>
+
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+        <!--connectionURL="jdbc:mysql://10.10.1.180:3306/zhenai_ipcc_control"-->
+        <!--userId="root"-->
+        <!--password="xftm8888" />-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.zhenai.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.zhenai" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.zhenai.mapper" targetProject="src/main/java" />-->
+
+        <!--<table tableName ="tb_call_record"/>-->
+        <!--<table tableName ="keyword_config"/>-->
+        <!--<table tableName ="out_call"/>-->
+        <!--<table tableName ="qc_result"/>-->
+        <!--<table tableName ="qc_record"/>-->
+        <!--<table tableName ="tb_alarm_cfg"/>-->
+        <!--<table tableName ="tb_asr_result"/>-->
+        <!--<table tableName ="tb_asr_result_copy"/>-->
+        <!--<table tableName ="tb_asr_sentence_result"/>-->
+        <!--<table tableName ="tb_asr_sentence_result_copy"/>-->
+        <!--<table tableName ="tb_call_in_ringing_transfer"/>-->
+        <!--<table tableName ="tb_cdr_a_leg"/>-->
+        <!--<table tableName ="tb_cdr_a_leg_copy"/>-->
+        <!--<table tableName ="tb_cdr_copy"/>-->
+        <!--<table tableName ="tb_crm_connect"/>-->
+        <!--<table tableName ="tb_score"/>-->
+        <!--<table tableName ="tb_score_copy"/>-->
+        <!--<table tableName ="tb_seat_history"/>-->
+
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+        <!--connectionURL="jdbc:oracle:thin:@10.10.1.157:1521:orcl"-->
+        <!--userId="TMDH"-->
+        <!--password="TMDH" />-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.tmdh.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.tmdh" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.tmdh.mapper" targetProject="src/main/java" />-->
+        <!--<table tableName = "or_code_info"/>-->
+        <!--<table tableName = "quality_Inspection_result" >-->
+            <!--&lt;!&ndash;<domainObjectRenamingRule searchString="^zam003" replaceString="dhZam003" />&ndash;&gt;-->
+        <!--</table>-->
+        
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@10.10.1.151:1521:orcl"-->
+                        <!--userId="TMZL"-->
+                        <!--password="TMZLa163com2016" />-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.mybatis.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.app" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.mybatis.mapper" targetProject="src/main/java" />-->
+        <!--<table tableName = "risk_map_log"/>-->
+
+
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@10.10.1.110:1521:orcl"-->
+                        <!--userId="ccrs_source"-->
+                        <!--password="ccrs" />-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.ccrs.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.ccrs" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.ccrs.mapper" targetProject="src/main/java" />-->
+        <!--<table tableName ="BATCH_LOG"/>-->
+        <!--<table tableName ="V_CCRS_ORGCONTACT"/>-->
+        <!--<table tableName ="FBASIC"/>-->
+        <!--<table tableName ="V_CCRS_CONSTANT"/>-->
+        <!--<table tableName ="OCR_LOG"/>-->
+        <!--<table tableName ="V_CCRS_ORGBASE"/>-->
+        <!--<table tableName ="V_CCRS_CUSTOM"/>-->
+        <!--<table tableName ="V_CCRS_LOANCONTRACTAMOUNT"/>-->
+        <!--<table tableName ="V_CCRS_LOANCONTRACT"/>-->
+        <!--<table tableName ="V_CCRS_ORGSTOCKHOLDER"/>-->
+        <!--<table tableName ="V_CCRS_BADCREDITASSET"/>-->
+        <!--<table tableName ="V_CCRS_MORTGAGECONTRACT"/>-->
+        <!--<table tableName ="V_CCRS_DEBITINTEREST"/>-->
+        <!--<table tableName ="V_CCRS_GUARANTYCONTRACT"/>-->
+        <!--<table tableName ="V_CCRS_LOANRECEIPT"/>-->
+        <!--<table tableName ="V_CCRS_ORGEXECUTIVE"/>-->
+        <!--<table tableName ="V_CCRS_ORGSTATUS"/>-->
+        <!--<table tableName ="V_CCRS_ORGATTR"/>-->
+        <!--<table tableName ="V_CCRS_LOANREPAYMENT"/>-->
+        <!--<table tableName ="V_CCRS_ORGCONTACT"/>-->
+        <!--<table tableName ="V_CCRS_ORGFAMILY"/>-->
+        <!--<table tableName ="V_CCRS_ORGPARENTBODY"/>-->
+        <!--<table tableName ="V_CCRS_ORGAFFILIATED"/>-->
+        <!--<table tableName ="V_CCRS_PLEDGECONTRACT"/>-->
+        <!--<table tableName ="V_CCRS_FACTORING"/>-->
+        <!--<table tableName ="V_CCRS_LOANEXTENDED"/>-->
+        <!--<table tableName ="V_CCRS_FINPS_2007"/>-->
+        <!--<table tableName ="V_CCRS_FINIIE"/>-->
+        <!--<table tableName ="V_CCRS_FINIBS"/>-->
+        <!--<table tableName ="V_CCRS_FINCF_2007"/>-->
+        <!--<table tableName ="V_CCRS_FINBS_2007"/>-->
+        <!--<table tableName ="V_CCRS_CUSTLAWSUIT"/>-->
+        <!--<table tableName ="V_CCRS_CUSTEVENT"/>-->
+
+<!--
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/yu3_test"
+        userId="root"
+        password="123456" />
+
+        <javaModelGenerator targetPackage="com.xftm.ejob.localdb.mybatis.bean" targetProject="src/main/java" />
+
+        <sqlMapGenerator targetPackage="sql.localdb" targetProject="src/main/resources" />
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.localdb.mybatis.mapper" targetProject="src/main/java" />
+        <table tableName ="user_test"/>
+-->
+
+        <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+                        <!--connectionURL="jdbc:sqlserver://10.10.1.179:1433;databasename=icc"-->
+                        <!--userId="sa"-->
+                        <!--password="Adminsql**##"-->
+        <!--/>-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.maixin.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.maixin" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.maixin.mapper" targetProject="src/main/java" />-->
+        <!--<table tableName ="sys_calllog"/>-->
+        <!--<table tableName ="sys_callogasr"/>-->
+
+
+        <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+                        <!--connectionURL="jdbc:sqlserver://10.10.11.42:1433;databasename=icc"-->
+                        <!--userId="sa"-->
+                        <!--password="Adminsql**##"-->
+        <!--/>-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.call.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.call" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.call.mapper" targetProject="src/main/java" />-->
+        <!--<table tableName ="xftm_call_log"/>-->
+
+        <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+                        <!--connectionURL="jdbc:sqlserver://10.10.1.155:1433;databasename=carmodelall"-->
+                        <!--userId="logviewer"-->
+                        <!--password="wtWFbtrEET6tL"-->
+        <!--/>-->
+
+        <!--<javaModelGenerator targetPackage="com.xftm.ejob.db.dycw.bean" targetProject="src/main/java" />-->
+
+        <!--<sqlMapGenerator targetPackage="sql.dycw" targetProject="src/main/resources" />-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.xftm.ejob.db.dycw.mapper" targetProject="src/main/java" />-->
+
+        <!--<table tableName ="TAB_SCARMAKE"/>-->
+        <!--<table tableName ="TAB_SCARMODEL"/>-->
+        <!--<table tableName ="TAB_SCARTRIM"/>-->
+        <!--<table tableName ="TAB_SCARDETAIL"/>-->
+        <!--<table tableName ="TAB_SCONFIGMODEL"/>-->
+        <!--<table tableName ="TAB_SCONFIGITEMS"/>-->
+        <!--<table tableName ="TAB_SCONFIG"/>-->
+        <!--<table tableName ="TAB_SCONFIGIAUTOS"/>-->
+        <!--<table tableName ="TAB_SCARGUIDEDPRICE"/>-->
+        <!--<table tableName ="TAB_SCARNEWPRICE"/>-->
+        <!--<table tableName ="TAB_SUSEDCARPRICE"/>-->
+        <!--<table tableName ="TAB_MPPLX"/>-->
+        <!--<table tableName ="TAB_MRLLXBH"/>-->
+        <!--<table tableName ="TAB_MGTCL"/>-->
+        <!--<table tableName ="TAB_MLQXT"/>-->
+        <!--<table tableName ="TAB_MFDJFZFX"/>-->
+        <!--<table tableName ="TAB_MFDJWZ"/>-->
+        <!--<table tableName ="TAB_MJQFS"/>-->
+        <!--<table tableName ="TAB_MBSQXS"/>-->
+        <!--<table tableName ="TAB_MQDFS"/>-->
+        <!--<table tableName ="TAB_MZD"/>-->
+        <!--<table tableName ="TAB_MLGCL"/>-->
+        <!--<table tableName ="TAB_MPDWZ"/>-->
+        <!--<table tableName ="TAB_MCTLX"/>-->
+        <!--<table tableName ="TAB_MCDXS"/>-->
+        <!--<table tableName ="TAB_MCPXS"/>-->
+        <!--<table tableName ="TAB_MCPKHFS"/>-->
+
+    </context>
+
+</generatorConfiguration>
