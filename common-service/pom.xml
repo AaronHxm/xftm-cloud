@@ -17,8 +17,21 @@
         <dependency>
             <groupId>org.xftm</groupId>
             <artifactId>xftm-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
+
+        <!-- Resolve the Dubbo REST RPC issue -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- Resolve the Spring Cloud registration issue -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-web</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -44,6 +57,84 @@
             <version>${nacos.version}</version>
         </dependency>
 
+        <!-- List all Spring Cloud starters for Service Discovery -->
+
+        <!-- Spring Cloud Nacos Service Discovery -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${spring-cloud-Alibaba.version}</version>
+        </dependency>
+        <!-- Dubbo Registry Nacos -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-netflix.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+
+        <!-- Eureka Service Discovery -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+            <!--<version>${spring-cloud-Alibaba.version}</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Zookeeper Service Discovery &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>-->
+            <!--<version>${spring-cloud-Alibaba.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.apache.zookeeper</groupId>-->
+                    <!--<artifactId>zookeeper</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.zookeeper</groupId>-->
+            <!--<artifactId>zookeeper</artifactId>-->
+            <!--<version>3.4.12</version>-->
+            <!--<optional>true</optional>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                    <!--<artifactId>slf4j-log4j12</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.curator</groupId>-->
+            <!--<artifactId>curator-framework</artifactId>-->
+            <!--<version>${curator.version}</version>-->
+        <!--</dependency>-->
+
+        <!--&lt;!&ndash; Spring Cloud Consul Service Discovery &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
+            <!--<version>${spring-cloud-consul.version}</version>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
@@ -60,6 +151,12 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
             <version>${spring-cloud-Alibaba.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>${sentinel.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
@@ -89,16 +186,12 @@
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
-            <version>1.3.6</version>
+            <version>${mybatis.generator.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.34</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${mysql.connector.version}</version>
         </dependency>
 
         <dependency>
@@ -166,5 +259,61 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!-- REST support dependencies -->
+        <!--<dependency>-->
+            <!--<groupId>io.netty</groupId>-->
+            <!--<artifactId>netty-all</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.resteasy</groupId>-->
+            <!--<artifactId>resteasy-jaxrs</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.resteasy</groupId>-->
+            <!--<artifactId>resteasy-client</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.resteasy</groupId>-->
+            <!--<artifactId>resteasy-netty4</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>javax.validation</groupId>-->
+            <!--<artifactId>validation-api</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.resteasy</groupId>-->
+            <!--<artifactId>resteasy-jackson-provider</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.resteasy</groupId>-->
+            <!--<artifactId>resteasy-jaxb-provider</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate.validator</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+        <!--</dependency>-->
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 指定SpringBoot程序的main函数入口类 -->
+                    <mainClass>org.xftm.common.CommonApplication</mainClass>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,0 +1,243 @@
+logStash:
+  url: 10.10.80.21:5044
+nacos:
+  service-address: 10.10.80.21
+  port: 8848
+  namespace: de2abcc2-6fa9-40dd-9e76-99920d0b5bc6
+logging:
+  config: classpath:logback-logstash.xml
+server:
+  port: 8090
+  servlet:
+    context-path: /common-service
+#Spring Boot 2.x 中添加配置 允许 Endpoints 的访问
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  application:
+    name: common-service
+  security:
+    user:
+      name: common
+      password: common
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: ${nacos.service-address}:${nacos.port}
+        namespace: ${nacos.namespace}
+    stream:
+      rocketmq:
+        binder:
+          # 配置rocketmq的nameserver地址
+          name-server: 10.10.80.21:9876
+        bindings:
+          input1:
+            consumer:
+              orderly: true
+          input2:
+            consumer:
+              orderly: false
+              tags: tagStr
+          input3:
+            consumer:
+              tags: tagObj
+          ouput1:
+            producer:
+              group: binder-group
+              sync: true
+          output2:
+            producer:
+              transactional: true
+              group: myTxProducerGroup
+          output3:
+            producer:
+              group: pull-binder-group
+
+      bindings:
+        # 定义name为input1的binding
+        #input1:订阅 topic 为 TopicTest 的消息，顺序消费所有消息(顺序消费的前提是所有消息都在一个 MessageQueue 中)
+        input1:
+          destination: TopicTest
+          content-type: text/plain
+          group: test-group1
+        #input2: 订阅 topic 为 TopicTest 的消息，异步消费 tags 为 tagStr 的消息，Consumer 端线程池个数为20
+        input2:
+          destination: TopicTest
+          content-type: text/plain
+          group: test-group2
+          consumer:
+            concurrency: 20
+            maxAttempts: 1
+        input3:
+          destination: TopicTest
+          content-type: application/json
+          group: test-group3
+          consumer:
+            concurrency: 20
+        input4:
+          destination: TransactionTopic
+          content-type: text/plain
+          group: transaction-group
+          consumer:
+            concurrency: 5
+        input5:
+          destination: pull-topic
+          content-type: text/plain
+          group: pull-topic-group
+
+        # 定义name为output的binding
+        output:
+          destination: TopicTest
+          content-type: application/json
+        output1:
+          destination: TopicTest
+          content-type: application/json
+        output2:
+          destination: TransactionTopic
+          content-type: application/json
+        output3:
+          destination: pull-topic
+          content-type: text/plain
+
+    sentinel:
+      transport:
+        #sentinel控制台地址
+        dashboard: 10.10.80.20:8077
+        #与控制台通信的端口默认8719
+        port: 8719
+      datasource:
+        # 名称随意，流控数据规则配置
+        flow:
+          nacos:
+            server-addr: ${nacos.service-address}:${nacos.port}
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SENTINEL_GROUP
+            # 规则类型，取值见：
+            # org.springframework.cloud.alibaba.sentinel.datasource.RuleType
+            rule-type: flow
+            namespace: ${nacos.namespace}
+        # 名称随意，降级数据规则配置
+        degrade:
+          nacos:
+            server-addr: ${nacos.service-address}:${nacos.port}
+            dataId: ${spring.application.name}-degrade-rules
+            groupId: SENTINEL_GROUP
+            rule-type: degrade
+            namespace: ${nacos.namespace}
+        # 名称随意，系统数据规则配置
+        system:
+          nacos:
+            server-addr: ${nacos.service-address}:${nacos.port}
+            dataId: ${spring.application.name}-system-rules
+            groupId: SENTINEL_GROUP
+            rule-type: system
+            namespace: ${nacos.namespace}
+        # 名称随意，授权数据规则配置
+        authority:
+          nacos:
+            server-addr: ${nacos.service-address}:${nacos.port}
+            dataId: ${spring.application.name}-authority-rules
+            groupId: SENTINEL_GROUP
+            rule-type: authority
+            namespace: ${nacos.namespace}
+        # 名称随意，热点数据规则配置
+        param-flow:
+          nacos:
+            server-addr: ${nacos.service-address}:${nacos.port}
+            dataId: ${spring.application.name}-param-flow-rules
+            groupId: SENTINEL_GROUP
+            rule-type: param-flow
+            namespace: ${nacos.namespace}
+
+
+#数据源配置
+  datasource:
+    druid:
+      # druid 监控的配置
+      # WebStatFilter 用于采集 web-jdbc 关联监控的数据。
+      # 更多配置可参见: https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_%E9%85%8D%E7%BD%AEWebStatFilter
+      web-stat-filter:
+        # 是否开启 WebStatFilter 默认是 true
+        enabled: true
+        # 需要拦截的 url
+        url-pattern: /*
+        # 排除静态资源的请求
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+
+      # Druid 内置提供了一个 StatViewServlet 用于展示 Druid 的统计信息。
+      # 更多配置可参见:https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatViewServlet%E9%85%8D%E7%BD%AE
+      stat-view-servlet:
+        #是否启用 StatViewServlet 默认值 true
+        enabled: true
+        # 需要拦截的 url
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        login-username: admin
+        login-password: XcodeV1V
+        allow: ""
+      #elastic-job事件追踪数据源
+      base:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.10.80.20:3306/ejob?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false&autoReconnect=true&failOverReadOnly=false
+        username: root
+        password: XcodeV1V
+
+        type: com.alibaba.druid.pool.DruidDataSource
+        # 初始化时建立物理连接的个数。初始化发生在显示调用 init 方法，或者第一次 getConnection 时
+        initialSize: 5
+        # 最小连接池数量
+        minIdle: 5
+        # 最大连接池数量
+        maxActive: 200
+        # 获取连接时最大等待时间，单位毫秒。配置了 maxWait 之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置 useUnfairLock 属性为 true 使用非公平锁。
+        maxWait: 60000
+        # Destroy 线程会检测连接的间隔时间，如果连接空闲时间大于等于 minEvictableIdleTimeMillis 则关闭物理连接。
+        timeBetweenEvictionRunsMillis: 60000
+        # 连接保持空闲而不被驱逐的最小时间
+        minEvictableIdleTimeMillis: 300000
+        # 用来检测连接是否有效的 sql 因数据库方言而差, 例如 oracle 应该写成 SELECT 1 FROM DUAL
+        validationQuery: SELECT 1
+        # 建议配置为 true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行 validationQuery 检测连接是否有效。
+        testWhileIdle: true
+        # 申请连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
+        testOnBorrow: false
+        # 归还连接时执行 validationQuery 检测连接是否有效，做了这个配置会降低性能。
+        testOnReturn: false
+        # 是否自动回收超时连接
+#        removeAbandoned: true
+        # 超时时间 (以秒数为单位)
+#        remove-abandoned-timeout: 180
+        #状态监控
+        filters: stat,wall,log4j
+        maxPoolPreparedStatementPerConnectionSize: 20
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        useGlobalDataSourceStat: true
+        query-timeout: 6000
+
+dubbo:
+  registry:
+    address: nacos://${nacos.service-address}:${nacos.port}?namespace=${nacos.namespace}
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+   base-packages: org.xftm.common.service.rpc
+  application:
+    name: ${spring.application.name}
+
+  config-center:
+    namespace: ${nacos.namespace}
+    address: nacos://${nacos.service-address}:${nacos.port}
+feign:
+  hystrix:
+    enabled: true
