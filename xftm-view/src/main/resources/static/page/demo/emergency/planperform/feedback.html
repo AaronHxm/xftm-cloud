@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style type="text/css">
+div#mjdk{
+	padding: 10px;
+}
+select option{
+   color:white;
+   background-color:#012b36;
+}
+select:invalid{
+  color:gray;
+}
+</style>
+<div class="vbox box-con" id="feedback">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       <div class="vbox box-con" id="feedback">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	<!-- 查询面板 -->
+		<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<table class="table table-bordered table-info ">
+				<tr>
+					<td class="col-xs-2 td_title">预案类型</td>
+					<td class="col-xs-4">挟持人质事件</td>
+					<td class="col-xs-2 td_title">预案名称</td>
+					<td class="col-xs-4">保护人质安全演练</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">预案演练时间</td>
+					<td class="col-xs-4">2017-10-21</td>
+					<td class="col-xs-2 td_title">预案演练地点</td>
+					<td class="col-xs-4">XXX省XXX监狱</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">预案演练参与单位</td>
+					<td class="col-xs-10" colspan="3" style="text-align:left; padding-left:2vw">狱政部门、指挥中心、信息科、特警队</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12 td_title" colspan="4">预案演练各单位反馈</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12 td_title" colspan="4" style="text-align:left; padding-left:2vw;background-color:#104E8B">狱政部反馈内容:</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次事故应急预案演练，结合了实际情况和监狱《应急预案》的内容进行。演练组织系统，准备充分，受到了领导的充分重视，各个相关部门积极参与，达到了预期目的。狱政部在此次预案演练中参与了场景、人员安排等各个方面的部署作用，为其他部门的参与，起到了积极的组织作用。本次应急演练虽达到了预期目的，但暴露出的不足是今后工作中须反思和完善的地方。</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw;background-color:#104E8B">指挥中心反馈内容:</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次保护人质演练中，指挥部门充分发挥出了指挥调度作用。对于各个部门的人员，人质安全保护的各方面工作予以指挥，对于各个可能发生的紧急情况做好了充分的安排。在实际演练过程中，指挥部门牢记将人质的安全防在第一，尽可能的采取相对保守的部署，防止人质收到生命和精神上的损失。此次指挥工作表现出色，特予以表扬。</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw;background-color:#104E8B">信息科反馈内容分:</td>
+					</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次预案演练中，信息科展现出了强大的信息收集能力，在监狱大数据平台的帮助下，第一时间掌握了罪犯的所有资料，并且及时的对罪犯的性格与行为做出了精准的分析。将数据进行汇总分析后，也参与了与协调部门的沟通，并且为预案演练中能够安全并且不射击的方式救下人质，立下了功劳。此次行动表现最为亮眼，并且在信息科中心里专家的分析下，成功控制了罪犯的行为，充分展现了信息化监狱带来的优势。</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw;background-color:#104E8B">特警队反馈内容:</td>
+					</tr>
+				<tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特警队在此次预案演练中成功的将罪犯隔离开来，保证了周围其他人员的安全。并且在疏散无关人员时起到了积极的作用。虽然最后用谈判的方式救出人质，但是特警队也在极短时间内部署好了射击人员，防止意外的发生。</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- 详情面板 -->
+</div>
+	<table id="table"></table>
+       	</div>
+	</div>
+	<div class="vbox hz-col-1" id="police_panel" style="display:none;">
+		<iframe id="contentHTML" class="frm-content" src=""></iframe>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/emergency/planperform/feedback']);
+</script>

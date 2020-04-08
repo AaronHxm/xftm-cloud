@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<style type="text/css">
+div#planReview{
+	padding: 10px;
+	position: relative;
+}
+div.div_sel select{
+	width:100%;
+	height: 34px;
+	border: 1px solid #1f699e;
+	background-color:rgba(3,21,40,0);
+	font-size: 14px;
+	padding: 6px 12px;
+}
+div.div_sel select option{
+	color:white;
+	background-color:  #021B36;
+}
+select:invalid {
+	color: gray;
+}
+</style>
+<div class="vbox box-con" id="planReview">
+	<div class="buttons btn-box1">
+		<a class="hbtn btn_primary btn_large" @click="openSearchPanel()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+		<a class="hbtn btn_primary btn_large" @click="openEditPanel()"><i class="btn_icon icon_edit"></i><span>评审</span></a>
+	</div>
+	<div class="hbox hz-col-1">
+		<div style="width: 98.7%;height: 90%; top:8.5%;position: absolute;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+		<!-- 查询面板 -->
+	<div class="vbox hz-col-1" id="search_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">预案名称</label>
+					   <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入预案名称" v-model="search.djmj">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">预案类型</label>
+					    <div class="col-xs-10">
+					    	<div class="div_sel">
+					      		<select class="sel_train" required="required">
+					      			<option style="display: none;" value="">请选择预案类型</option>
+					      			<option value="1">罪犯逃脱</option>
+					      			<option value="2">挟持人质事件</option>
+					      			<option value="3">狱内行凶事件</option>
+					      			<option value="4">罪犯暴狱事件</option>
+					      			<option value="5">聚众冲击监狱事件</option>
+					      			<option value="6">公共卫生事件</option>
+					      			<option value="7">重大安全生产事故</option>
+					      			<option value="8">自然灾害事件</option>
+					      			<option value="9">其他突发事件</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		    <a class="hbtn btn_primary btn_mini pull-right" @click="searchDb()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+		</div>
+	</div>
+		<!-- 评审面板 -->
+	<div class="vbox hz-col-1" id="edit_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">创建时间</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入预案名称" v-model="search.time" readonly="readonly">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">预案名称</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入预案名称" v-model="search.name" readonly="readonly">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">预案描述</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入预案描述" v-model="search.content" id="ms">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">评审结果</label>
+					    <div class="col-xs-10">
+					    	<div class="div_sel">
+					      		<select class="sel_train" required="required" id="jg">
+					      			<option style="display: none;" value="">请选择评审结果</option>
+					      			<option value="通过">通过</option>
+					      			<option value="不通过">不通过</option>
+					      			<option value="重新评审">重新评审</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">评审意见</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<textarea rows="" cols="" placeholder="请输入评审意见" id="yj"></textarea>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		   <a class="hbtn btn_primary btn_mini pull-right" @click="closeAddPanel()"><i class="btn_icon icon_save"></i><span>保存</span></a>
+		</div>
+	</div>
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<table class="hz-col-1" id="baseInfo" style="width: 100%;height:65%;text-align: center;">
+			<tr>
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">创建时间</td>
+				<td v-text="planList.yasj"></td>
+			</tr>
+			<tr>
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);width: 25%;">预案名称</td>
+				<td v-text="planList.yamc"></td>
+			</tr>
+			<tr>
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">预案类型</td>
+				<td v-text="planList.yalx"></td>
+			</tr>
+			<!-- <tr>
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">预案民警</td>
+				<td v-text="planList.yamj"></td>
+			</tr> -->
+			<tr>
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">预案描述</td>
+				<td v-text="planList.yams"></td>
+			</tr>
+			<tr class="ps_dis">
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">评审时间</td>
+				<td v-text="planList.pssj"></td>
+			</tr>
+			<tr class="ps_dis">
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">评审结果</td>
+				<td v-text="planList.pszt"></td>
+			</tr>
+			<tr class="ps_dis">
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">评审意见</td>
+				<td v-text="planList.psnr"></td>
+			</tr>
+			<tr class="ps_dis">
+				<td class="td_title" style="color:rgb(104,204,210);background-color: rgba(44,55,88,0.45);">评审民警</td>
+				<td v-text="planList.psmj"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/emergency/planMng/planReview']);
+</script>

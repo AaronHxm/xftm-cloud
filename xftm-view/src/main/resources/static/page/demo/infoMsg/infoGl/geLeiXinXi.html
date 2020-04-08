@@ -1,0 +1,520 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/cic_common.css" charset="utf-8">
+<style type="text/css">
+div#zdInfo{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+[v-cloak] {
+	display: none !important;
+}
+div#zdInfo div.box1,div#zdInfo div.box2,div#zdInfo div.box3,div#zdInfo div.box4,div#zdInfo div.box5,div#zdInfo div.box6{
+	background-image: url(../../../../css/images/box1.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#zdInfo div.box1:hover,div#zdInfo div.box2:hover,div#zdInfo div.box3:hover,div#zdInfo div.box4:hover,div#zdInfo div.box5:hover,div#zdInfo div.box6:hover{
+	background-image: url(../../../../css/images/box1_1.png);
+}
+
+div#zdInfo div.box1{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 3vw !important;
+    top: 1vh !important;
+}
+div#zdInfo div.box2{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 35vw !important;
+    top: 1vh !important;
+}
+
+div#zdInfo div.box3{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 67vw !important;
+    top: 1vh !important;
+}
+
+div#zdInfo div.box4{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 3vw !important;
+    top: 52vh !important;
+}
+
+div#zdInfo div.box5{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 35vw !important;
+    top: 52vh !important;
+}
+
+div#zdInfo div.box6{
+	position: absolute;
+	width: 30vw !important;
+    height: 47vh !important;
+    left: 67vw !important;
+    top: 52vh !important;
+}
+div.zd_title{
+	width:100%;
+	height:6.9vh !important;
+}
+div.zd_tab{
+	width:100%;
+	height:37.4vh !important;
+	padding-top:.76vh !important;
+	padding-left:.46vw !important;
+	padding-right:.46vw !important;
+}
+div.zd_tab div.left{
+	width:23vh !important;
+	height:37vh !important;
+	float:left;
+}
+
+div.zd_tab div.right{
+	width:38vh !important;
+	height:37vh !important;
+	float:left;
+}
+ul.msg_ul{
+	list-style: none;
+    display: block;
+    width: 100%;
+    height: 96%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 2%;
+    user-select: none;
+    
+}
+ul.msg_ul li.li1{
+    display: list-item;
+	width: 100%;
+	height: 4.9vh;
+	line-height: 4.9vh;
+	text-align: center;
+	border-bottom:1px solid #6E7681;
+	border-left:1px solid #6E7681;
+	border-right:1px solid #6E7681;
+	font-family: 黑体;
+    text-shadow: rgb(0, 0, 0) 1px 2px 1px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ul.msg_ul li.li1:hover{
+    font-size: 15px;
+    background:rgba(0,0,0,0.5);
+    color:#80FFFF;
+}
+
+ul.msg_ul li.checked{
+    font-size: 15px;
+    background:rgba(0,0,0,0.5);
+    color:#80FFFF;
+}
+
+ul.msg_ul li.msg_li{
+    display: list-item;
+	width: 100%;
+	height: 4.7vh;
+	line-height: 4.7vh;
+	margin: 0 auto;
+}
+ul.msg_ul li span{
+    display: inline-block;
+    font-size: 14px;
+}
+ul.msg_ul li.msg_li span.one{
+	padding-top: .37vw;
+	padding-left: .3vw;
+	width: 45%;
+    font-family: 黑体;
+    text-shadow: rgb(0, 0, 0) 1px 2px 1px;
+    font-size: 14px;
+    text-align: right;
+   color: #00BBBB;
+    
+}
+ul.msg_ul li.msg_li span.two{
+	padding-top: .37vw;
+	padding-left: 1.2vw;
+    font-family: 黑体;
+    text-shadow: rgb(0, 0, 0) 1px 2px 1px;
+    font-size: 14px;
+}
+</style>
+<div class="vbox box-con" id="zdInfo">
+	<!-- <div class="box1">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">监狱安全指数</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="prisonSafe" style="width:100%;height:100%"></div>
+		</div>
+	</div> -->
+	<!-- <div class="box2">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">报警信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div class="hbox hz-col-1">
+				<div style="width: 100%;height:36.4vh">
+			       	<table id="alarmInfo"></table>
+		       	</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- <div class="box3">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">罪犯流动信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div class="hbox hz-col-1">
+				<div style="width: 100%;height:36.4vh;">
+			       	<table id="zdFlow"></table>
+		       	</div>
+			</div>
+			<div id="prisonFlow" style="width:100%;height:100%"></div>
+		</div>
+	</div> -->
+	
+	<div class="box1">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">零星流动统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="zaiya" style="width:100%;  height: 160px"></div>
+		</div>
+	</div> 
+	<!-- <div class="box1">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">零星流动统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="zaiya" style="width:100%;height:100%"></div>
+		</div>
+	</div> -->
+	<div class="box2">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">亲情统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="zhongdian" style="width:100%;height:100%"></div>
+		</div>
+	</div>
+	
+	<!-- <div class="box3">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">会见统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="bingfan" style="width:100%;height:100%"></div>
+		</div>
+	</div>
+	 -->
+	 <div class="box3">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">会见统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="">
+			<div id="huijian" style="width:100%;  height: 95%"></div>
+		</div>
+	</div> 
+	<div class="box4">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">要情日报信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div class="hbox hz-col-1">
+				<div style="width: 100%;height:36.4vh;">
+			       	<table id="yqsbInfo"></table>
+		       	</div>
+			</div>
+		</div>
+	</div>
+	<div class="box5">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">罪犯进出统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="ssyx" style="width:100%;height:100%"></div>
+		</div>
+	</div>
+	<!-- <div class="box6">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">假释释放统计</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="quyu" style="width:100%;height:100%"></div>
+		</div>
+	</div> -->
+	<div class="box6">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">假释释放</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="">
+			<div id="prisonerpie6" style="width:100%;  height: 95%"></div>
+		</div>
+	</div> 
+	<!-- <div class="box6">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">民警值班信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div class="hbox hz-col-1">
+				<div class="left">
+					<ul class="msg_ul" id="prisons">
+						<li class="li1" v-cloak v-for="Prison in list3" @click="openPolice(Prison)">{{Prison.name}}</li>
+					</ul>
+				</div>
+			    <div class="right">
+					<ul class="msg_ul">
+						<li class="msg_li" v-cloak v-for="Police in list4" >
+							<span class="one">{{Police.classs}}：</span>
+							<span class="two" style="color:{{Police.color}}">{{Police.name}}</span>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	 -->
+	
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;padding-bottom: 1px;" id="overflow">
+			<table class="table table-bordered table-info">
+				<tr>
+					<td colspan="2" class="col-xs-10 td_title" style="font-size: 18px;">xx省第二监狱要情日报表</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="col-xs-10 td_title" style="font-size: 15px;">
+						<div style="float: left;">单位: <span>xx省第二监狱</span></div>
+						<div style="float: right;">填报时间: <span>2017-12-09</span></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">主要汇报内容</td>
+					<td class="col-xs-8 td_title">当日情况</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">监狱罪犯概况</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">截至今日，监狱在册罪犯3591人，较昨日减少6人，在押3561人，较昨日减少6人，其中暂予监外执行25人，解回再审5人，特情借用0人，中心医院住院3人，中心医院借用护理人员0人，监狱医院29人，高度戒备管理罪犯9人，隔离审查0人，xx医院精神病区（重症）住院3人，社会医院住院0人。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">罪犯进出大门</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">今日罪犯出监7人：xx医院1人，假释5人，释放1人；今日罪犯入监1人：xx医院回监1人。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">外来人员车辆</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">今日外来人员进出156人次，车辆进出39车次。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">安防设施运行</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">正常</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">罪犯违规违纪</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">正常</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">重大活动上报</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">无</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">其他</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">无</textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="vbox box-con" id="flow_panel" style="display:none;">
+		<div id="flowDiv" class="hz-col-1" style="margin-top: 10px;height: auto;padding:5px;" >
+	       	<table id="flowInfo"></table>
+       	</div>
+	</div>
+	
+	
+	<!-- 详细面板 -->
+	<!-- <div class="vbox hz-col-1" id="flow_panel2" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<div class="panel-group" id="accordion" style="margin-bottom: 0px;">
+				监区上报信息
+				<div class="panel panel-info" style="cursor:pointer;" data-toggle="collapse" id="jqsbMsg">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapse-contact-a" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseReport"> 第一监狱上报详情
+							</a>
+						</h4>
+					</div>
+					<div class="panel-collapse collapse in">
+						<div class="panel-body" style="padding: 0px;">
+							<table class="table table-bordered table-info">
+								<tr>
+									<td class="col-xs-2 td_title">罪犯姓名</td>
+									<td class="col-xs-4">张勇</td>
+									<td class="col-xs-2 td_title">上报单位</td>
+									<td class="col-xs-4">第一监狱</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">流动事由</td>
+									<td class="col-xs-4">中心医院住院</td>
+									<td class="col-xs-2 td_title">出入时间</td>
+									<td class="col-xs-4">2017-01-01 14:30:25</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">流动描述</td>
+									<td colspan="3" class="col-xs-10" style="padding : 0px;"><textarea readonly="readonly">中心医院住院出监</textarea></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">审批民警</td>
+									<td class="col-xs-4">张达</td>
+									<td class="col-xs-2 td_title">审批时间</td>
+									<td class="col-xs-4">2017-01-01 14:31:25</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">审批意见</td>
+									<td colspan="3" class="col-xs-10"><span style='color: #41f937;'>通过</span></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">复核民警</td>
+									<td class="col-xs-4">王霞</td>
+									<td class="col-xs-2 td_title">复核时间</td>
+									<td class="col-xs-4">2017-01-01 14:31:25</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">复核意见</td>
+									<td colspan="3" class="col-xs-10"><span style='color: #41f937;'>通过</span></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	 -->
+	<!-- <div class="vbox box-con" id="flow_panel3" style="display:none;">
+		<div class="video" style="width:100%;height: 100%;padding:5px;" >
+	       	<video autoplay="autoplay" width="100%" height="100%" loop="loop" controls="controls">
+				<source src="../../../../css/cmd_imgs/video/9.mp4" type="video/mp4">
+			</video>
+       	</div>
+	</div>
+	 -->
+	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/infoGl/geLeiXinXi']);
+</script>

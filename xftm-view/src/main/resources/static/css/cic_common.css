@@ -1,0 +1,188 @@
+table.table-info{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 0px;
+	border: none;
+}
+table.table-info tbody tr td{
+    border: 1px solid rgba(65, 103, 130, 0.25);
+    text-align: center;
+    font-size:14px;
+}
+table.table-info tbody tr td{
+	vertical-align: middle;
+	max-height: 25px;
+	background-color: rgba(24, 35, 45, 0.19);
+	color: rgba(255, 255, 255, 0.9);
+}
+table.table-info tbody tr td.td_title{
+	font-size: 13px;
+	font-weight: bold;
+	background-color: rgba(44, 55, 88, 0.45);
+	color: rgb(104, 204, 210);
+}
+table.table-info tbody tr td.remark{
+	padding: 0px;
+	height: 180px;
+}
+table.table-info tbody tr td textarea{
+	width: 100%;
+	height: 100%;
+	padding: 6px 12px;
+	border: none;
+	letter-spacing: 2px;
+	line-height: 25px;
+}
+table#table tbody tr td a.btn_large{
+	height: 25px;
+	line-height: 22px;
+	padding: 0px 5px;
+}
+.fixed-table-container thead th .th-inner, .fixed-table-container tbody td .th-inner{
+	padding: 5px;
+}
+.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed) > tbody > tr > th, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > th, .bootstrap-table .table:not(.table-condensed) > thead > tr > td, .bootstrap-table .table:not(.table-condensed) > tbody > tr > td, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > td{
+	padding: 5px;
+}
+form.form-horizontal textarea{
+	width: 100%;
+	height: 180px;
+	border: 1px solid #1f699e;
+	padding: 6px 12px;
+	letter-spacing: 2px;
+	line-height: 25px;
+}
+div.hz-col-1 div.buttons{
+	height: 32px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+div.btn-box1{
+	float: left;
+	padding-top: 10px;
+	height: 0px;
+}
+div.btn-box2{
+	float: left;
+	padding-bottom: 5px;
+}
+div.btn-box1 a.hbtn{
+	margin: 0px;
+}
+div.btn-box2 a.hbtn{
+	margin: 0px;
+}
+.panel-info>.panel-heading{
+	color: rgb(6, 251, 240);
+}
+#accordion .panel-heading .collapse-contact-a span.glyphicon{
+	top: 2px;
+}
+#accordion .panel-heading .collapse-contact-a span.glyphicon-chevron-down:before{
+	content: "\e113";
+}
+#accordion .panel-heading .collapsed span.glyphicon-chevron-down:before{
+	content: "\e114";
+}
+.flatpickr-day{
+	height: 25px;
+	line-height: 25px;
+}
+.flatpickr-calendar{
+	font-size: 80%;
+}
+
+
+.btn_primary1 {
+    border: 1px solid #00CA65;
+    color: #06FF83;
+}
+.btn_primary1:focus, .btn_primary1:hover {
+    background-color: #00CA65;
+    border-color: #00CA65;
+    color: #fff;
+}
+
+
+table tbody tr td span.sp_1{
+	color: #98FB98;
+}
+table tbody tr td span.sp_2{
+	color: #cec099;
+}
+table tbody tr td span.open{
+	text-decoration: underline;
+	cursor: pointer;
+}
+div#wait_window{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4) !important;
+	z-index: 999999999999999;
+}
+div#wait_window div.tip-tab {
+	display: table;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+div#wait_window div.tip-tab div.tip-tab-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+div#wait_window div.tip-tab div.tip-tab-cell span {
+	padding: 18px 40px;
+	color: rgba(0, 0, 0, 0.9);
+	font-size: 15px;
+	background-color: #F2F2F2;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 3px rgba(57, 206, 204, 0.19);
+}
+.fixed-table-container thead th{
+	border-left: none;
+}
+.bootstrap-table>.fixed-table-container>.fixed-table-body>.table>tbody>tr>td{
+  border: 1px solid rgba(73, 116, 134, 0.5);
+}
+.pagination>li>a, .pagination>li>span{
+	color: #a5cee2;
+	border: 1px solid rgb(77, 133, 189);
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
+	color: #1d3f5d;
+}
+/* iconfont矢量图标 */
+@font-face {
+  font-family: "iconfont";
+  src: url('icon/iconfont.woff?t=1501813485967') format('woff');
+}
+@font-face {
+  font-family: "iconfont";
+  src: url('icon/iconfont2.woff?t=1501813485967') format('woff');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-zhiding:before { content: "\e75a"; }
+.icon-quxiao:before { content: "\e630"; }
+.icon-fankui:before { content: "\e61f"; }
+.icon-baobeishenqing:before { content: "\e60a"; }
+.icon-fenpei:before { content: "\e64a"; }
+.icon-huitui:before { content: "\e604"; }
+.icon-shengji:before { content: "\e63d"; }
+.icon-chuli:before { content: "\e735"; }
+.icon-wancheng:before { content: "\e612"; }
+.icon-chu:before { content: "\e602"; }
+.icon-shou:before { content: "\e62c"; }
+.icon-01:before { content: "\e603"; }
+.icon-danxuan:before { content: "\e6c3"; }
+.icon-radio:before { content: "\e502"; }
+.icon-return:before { content: "\e676"; }
+.icon-chakan:before { content: "\e62d"; }

@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<title>LED推送</title>
+<style type="text/css">
+div#cmd_msg_ledts{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+}
+div.col-xs-9{
+	padding: 20px;
+	height: 90%;
+	width: 100%;
+}
+</style>
+<div id="cmd_msg_ledts">
+		<div class="col-xs-9">
+			<div style="height:99%;width:100%;border:1px solid #2295e6;">
+				<div style="height:90%;width:100%; center;">
+					<textarea placeholder="请输入需要推送的信息" rows="20%" cols="100%" style="border:1px solid #4594b9;font-size:20px;padding: 10px;width:100%;">
+	距离安全生产零事故整年还剩4天，今日值班领导李某某,指挥长赵某某。司法厅王厅长三天后将来我监视察工作。
+					</textarea>
+				</div>
+				<div style="height:10%;">
+					<a class="btn btn-primary" style="float:right;margin-right:10px;">推送</a>
+				</div>
+			</div>
+		</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/cmd/cmd_msg/cmd_ledts']);
+</script>

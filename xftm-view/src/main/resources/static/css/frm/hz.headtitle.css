@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.hz-head-title {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding-left: 10px;
+	box-shadow: 2px 1px 3px #000;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-top: 0 none;
+    border-right: 0 none;
+    border-radius: 0 0 0 5px;
+    background-color: rgba(42, 61, 82,.95) !important;
+    background-clip: padding-box;
+	font-size: 1em; 
+	cursor: default;
+	z-index: 1; 
+	transition: all .5s;
+}
+.hz-head-title.show {
+	display: block !important; 
+}
+.hz-head-title:hover {
+	box-shadow: 0 0 5px #e74c3c;
+}
+.hz-head-title .mht-node {padding: 8px 10px; transition: background 0.5s;}
+.hz-head-title .mht-node:hover {background:rgba(0,0,0,0.2);}
+.hz-head-title .mht-num {margin-right: 3px;color: #ffe200;text-decoration: underline;text-shadow: none;cursor: pointer;}
+
+.hz-instruction-icon {background:url(../images/nav_instruction.png) 8px center no-repeat; background-size: 25px;}
+.hz-instruction-icon:hover {background-image: url(../images/nav_instruction_h.png);}

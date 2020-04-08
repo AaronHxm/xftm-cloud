@@ -1,0 +1,236 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<title>外来车辆实时监督</title>
+<style type="text/css">
+div#exterTraffRelSuperv {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+div.rightDivImg {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+div .rightDivImg img {
+	cursor: pointer;
+	transition: all 0.6s;
+}
+div .rightDivImg img:hover {
+	transform: scale(1.4);
+}
+.img_flowing {
+	height: 80%;
+	position: absolute;
+	overflow: hidden;
+}
+.rightDiv {
+	height: 30%;
+	position: relative;
+	overflow: hidden;
+}
+.new_alarm {
+	height:10%;
+ 	padding:5px 10px 5px 5px;
+	text-align: center;
+	margin: 5px auto;
+	background-image:url("../../../../css/cmd_imgs/jqlb_li2.png");
+}
+.flowInfo {
+	padding: 3px;
+	font-size: 15px;
+	text-align: left;
+}
+div.video{
+	float:left;
+	width:50%;
+	height:100%;
+	padding:1px;
+}
+ul.msg_ul{
+	list-style: none;
+    display: block;
+    width: 100%;
+    height:56%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 2%;
+    user-select: none;  
+}
+ul.msg_ul li.li1{
+    display: list-item;
+	width: 100%;
+	height: 4.9vh;
+	line-height: 4.9vh;
+	text-align: center;
+	border-bottom:1px solid #6E7681;
+	border-left:1px solid #6E7681;
+	border-right:1px solid #6E7681;
+	font-family: 黑体;
+    text-shadow: rgb(0, 0, 0) 1px 2px 1px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ul.msg_ul li.li1:hover{
+    font-size: 15px;
+    background:rgba(0,0,0,0.5);
+    color:#80FFFF;
+}
+div#exterTraffRelSuperv div.main_left{
+	position: absolute;
+	width: 16%;
+    height: 96%;
+    left: 2%;
+    top: 2%;
+    bottom: 2%;
+}
+div#exterTraffRelSuperv div.main_mid{
+	position: absolute;
+	width: 56%;
+    height: 96%;
+    left: 20%;
+    top: 2%;
+    bottom: 2%;
+}
+div#exterTraffRelSuperv div.main_right{
+	position: absolute;
+	width: 20%;
+    height: 96%;
+    left: 78%;
+    top: 2%;
+    bottom: 2%;
+}
+div#exterTraffRelSuperv div.main_mid div.main_mid_top{
+	position: absolute;
+	width: 100%;
+    height: 49%;
+    bottom: 51%;
+}
+div#exterTraffRelSuperv div.main_mid div.main_mid_bottom{
+	position: absolute;
+	width: 100%;
+    height: 49%;
+    bottom: 0%;
+}
+div#exterTraffRelSuperv div.main_left,div#exterTraffRelSuperv div.main_right{
+	background-image: url(../../../../css/images/box2.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#exterTraffRelSuperv div.main_left:hover,div#exterTraffRelSuperv div.main_right:hover{
+	background-image: url(../../../../css/images/box2_1.png);
+}
+div#exterTraffRelSuperv div.main_mid div.main_mid_top,div#exterTraffRelSuperv div.main_mid div.main_mid_bottom{
+	background-image: url(../../../../css/images/box3.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#exterTraffRelSuperv div.main_mid div.main_mid_top:hover,div#exterTraffRelSuperv div.main_mid div.main_mid_bottom:hover{
+	background-image: url(../../../../css/images/box3_1.png);
+}
+</style>
+<div class="vbox box-con" id="exterTraffRelSuperv">
+	<div class="main_left">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">外来车辆出入列表</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div style="height:92%;position:absolute;overflow:auto;width:100%;">
+			<div id="alarm_list">
+				<div class="new_alarm" v-for="exterTraff in exterTraffList" id="li_{{exterTraff.id}}" @click="openAlarm(exterTraff.id)">
+					{{exterTraff.record}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main_mid">
+		<div class="main_mid_top">
+			<div style="width:100%;height:100%;" align="center">
+				<img height="99%" width="99%" src="img/abdoor.png">
+			</div>
+		</div>
+		<div class="main_mid_bottom">
+			<div class="video" v-for="video in videoList">
+				<video autoplay="autoplay" width="100%" height="100%" loop="loop" controls="controls">
+					<source src="{{video.videoURL}}" type="video/mp4">
+				</video>
+			</div>
+		</div>
+	</div>
+	<div class="main_right">
+		<div class="rightDiv">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">AB门值班民警</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="img_flowing">
+				<div class="rightDivImg" v-for="abDutyPolice in abDutyPoliceList">
+					<img width="90" height="90" style="margin-left:15px;" src="{{abDutyPolice.policeImg}}">
+					<div style="text-align:center;">{{abDutyPolice.policeName}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="rightDiv">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">指挥中心值班民警</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="img_flowing">
+				<div class="rightDivImg" v-for="ctrlDutyPolice in ctrlDutyPoliceList">
+					<img width="90" height="90" style="margin-left:15px;" src="{{ctrlDutyPolice.policeImg}}">
+					<div style="text-align:center;">{{ctrlDutyPolice.policeName}}</div>
+				</div>
+			</div>
+		</div>
+		<div style="height:7%;border:1px solid #0095ff;line-height:35px;padding-left:40px;">
+			<div>
+				<span>监狱指挥中心</span>
+				<a id="cmd_hj" @click="cmd_hj()" class="btn btn-xs btn-info">呼叫</a>
+			<span class="cmd_thz" style="display: none;color:green;">通话中</span>
+			<span style="display: none;color:green;" class='glyphicon glyphicon-option-horizontal cmd_thz'></span>
+			<a id="cmd_gd" @click="cmd_gd()" style="display: none;" class="btn btn-xs btn-info">挂断</a>
+			</div>
+		</div>
+		<div style="height:33%;">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">检查流程</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<ul class="msg_ul">
+				<li class="flowInfo" v-for="flowInfo in flowInfoList">{{flowInfo.id}}&nbsp;&nbsp;&nbsp; {{flowInfo.name}}</li>
+			</ul>
+			<div align="center">
+				<a id="cmd_fh" @click="cmd_fh()" class="btn btn-sm btn-primary">复核</a>
+			</div>	
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/security/exterTraff/exterTraffRelSuperv']);
+</script>

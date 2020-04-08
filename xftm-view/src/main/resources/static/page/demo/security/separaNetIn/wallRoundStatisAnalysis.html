@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<style type="text/css">
+div#wallRoundStatisAnalysis {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+div#wallRoundStatisAnalysis div.main_left{
+	position: absolute;
+	width: 20%;
+    height: 96%;
+    left: 2%;
+    top: 2%;
+    bottom: 2%;
+}
+div#wallRoundStatisAnalysis div.main_right{
+	position: absolute;
+	width: 74%;
+    height: 96%;
+    left: 24%;
+    top: 2%;
+    bottom: 2%;
+}
+div#wallRoundStatisAnalysis div.main_left{
+	background-image: url(../../../../css/images/box2.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#wallRoundStatisAnalysis div.main_left:hover{
+	background-image: url(../../../../css/images/box2_1.png);
+}
+div#wallRoundStatisAnalysis div.main_right{
+	background-image: url(../../../../css/images/box4.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#wallRoundStatisAnalysis div.main_right:hover{
+	background-image: url(../../../../css/images/box4_1.png);
+}
+</style>
+<div id="wallRoundStatisAnalysis" class="vbox box-con">
+	<div class="main_left">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">全省概况</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div style="width: 100%;height: 100%;">
+			<table id="table"></table>
+		</div>
+	</div>
+	<div class="main_right">
+		<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">围墙周界异常分布</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		<div id="inNomalSpread" style="width:100%;height:100%"></div>
+	</div>
+	<!-- 详情面板 -->
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<div class="panel-group" id="accordion" style="margin-bottom: 0px;">
+				<!-- 事件报备详情 -->
+				<div class="panel panel-info" style="cursor:pointer" data-toggle="collapse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapse-contact-a" data-toggle="collapse" data-warent="#accordion"
+								href="#collapseWallRoundInfo"> 围墙周围异常详情
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseWallRoundInfo" class="panel-collapse collapse in">
+						<div class="panel-body" style="padding: 0px;">
+							<table class="table">
+								<tr>
+									<td class="col-xs-2 td_title">日期</td>
+									<td class="col-xs-2 td_title">监狱名称</td>
+									<td class="col-xs-2 td_title">巡查民警</td>
+									<td class="col-xs-2 td_title">异常原因</td>
+								</tr>
+								<tr v-for="wallRoundInfo in wallRoundInfoShow.detail">
+									<td class="col-xs-2" v-text="wallRoundInfo.date"></td>
+									<td class="col-xs-2" v-text="wallRoundInfo.prisonName"></td>
+									<td class="col-xs-2" v-text="wallRoundInfo.checkPoliceName"></td>
+									<td class="col-xs-2" v-text="wallRoundInfo.inNomalInfo"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script>
+	requirejs(['hz/demo/security/separaNetIn/wallRoundStatisAnalysis']);
+</script>

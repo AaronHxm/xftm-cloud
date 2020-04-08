@@ -1,0 +1,250 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/ztree/css/zTreeStyle/zTreeStyle.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+
+<style type="text/css">
+* {
+	outline: none;
+}
+/* ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+} */
+.box {
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	/*  border: 1px solid #0099FF; */
+}
+
+.box-left {
+	margin-left: 0px;
+	height: 100%;
+	width: 30%;
+	border: 1px solid #0099FF;
+	float: left;
+}
+
+.box-middle {
+	left: 31%;
+	width: 70%;
+	height: 63%;
+	top: 3%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+.box-middle2 {
+	left: 31%;
+	width: 70%;
+	height: 37%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+ul.ztree {
+	position: absolute;
+	overflow: auto;
+	height: 92%;
+	width: 25%;
+}
+
+.ztree li span {
+	font-size: 16px;
+	margin-top: 3px;
+}
+
+.phoneBtn {
+	width: 40px;
+	height: 25px;
+	background: url('img/dianhua2.png') no-repeat;
+}
+
+.list {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+.list1 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+.list2 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+.list11 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+.list12 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+.list13 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+.list14 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+.list15 {
+	border-radius: 10px 10px 10px 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 17%;
+	height: 35%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+.list4 {
+	width: 15%;
+	height: 100%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+
+.list3 {
+	width: 85%;
+	height: 100%;
+	border: 1px solid #0099FF;
+	float: left;
+	/*  background-color: black; */
+}
+</style>
+<div class="box" id='duijiangji'>
+	<div class="box-left">
+		<div class="left-con vboxs">
+
+			<div class="hz-col-1">
+				<ul id="tree" class="ztree"></ul>
+			</div>
+		</div>
+	</div>
+    
+	<div class="box-middle">
+		<div class="list"  id="l1">
+			
+			<span style="display: block;font-size: 20px; margin-left: 30px; margin-top: 30px">{{videoArea.name}}</span>
+
+		</div>
+		<div class="list1"  id="l2">
+			
+
+			<span style="display: block;font-size: 20px; margin-left: 30px; margin-top: 30px">{{videoArea.name1}}</span>
+
+		</div>
+		<div class="list2"  id="l3">
+			
+			<span style="display: block;font-size: 20px; margin-left: 30px; margin-top: 30px">{{videoArea.name2}}</span>
+
+		</div>
+		<div class="list11"  id="l3">
+			
+			<span style="display: block; margin-left: 30px; margin-top: 30px"></span>
+
+		</div>
+		<div class="list12"  id="l3">
+			
+			<span style="display: block; margin-left: 30px; margin-top: 30px"></span>
+
+		</div>
+		<div class="list13"  id="l3">
+			
+			<span style="display: block; margin-left: 30px; margin-top: 30px"></span>
+
+		</div>
+		<div class="list14"  id="l3">
+			
+			<span style="display: block; margin-left: 30px; margin-top: 30px"></span>
+
+		</div>
+		<div class="list15"  id="l3">
+			
+			<span style="display: block; margin-left: 30px; margin-top: 30px"></span>
+
+		</div>
+
+
+
+
+
+	</div>
+	<div class="box-middle2">
+
+		<div class="list3" >
+			<span style="display: block; margin-left: 10px; margin-top: 10px">正在连接...</span>
+			<span style="display: block; margin-left: 10px; margin-top: 20px">正在与对讲机{{videoArea.name}}通话</span>
+			<span style="display: block; margin-left: 10px; margin-top: 25px">建立连接...</span>
+
+		</div>
+		<div class="list4" >
+			<a class="btn btn-xs btn-info"
+				style="display: block;background:#5BC0DE; width: 50px; height: 30; margin-left: 30px; margin-top: 20px; font-size: 16px;">呼叫</a>
+			<a class="btn btn-xs btn-info"
+				style="display: block;background:#5BC0DE; width: 50px; height: 30; margin-left: 30px; margin-top: 10px; font-size: 16px;">监听</a>
+			<a class="btn btn-xs btn-info"
+				style="display: block;background:#5BC0DE; width: 50px; height: 30; margin-left: 30px; margin-top: 10px; font-size: 16px;">广播</a>
+		</div>
+
+		<!--  <a class="btn btn-xs btn-info" style=" display: block; margin-left: 650px;margin-top: 10px">呼叫</a> -->
+	</div>
+
+</div>
+
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/emergency/dailySche/duijiangji']);
+</script>

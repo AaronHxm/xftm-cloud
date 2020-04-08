@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<style type="text/css">
+div#aqzf{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+[v-cloak] {
+	display: none !important;
+}
+div#aqzf div.box1{
+	position: absolute;
+	width: 25vw !important;
+    height: 92vh !important;
+    left: 3vw !important;
+    top: 4vh !important;
+}
+div#aqzf div.sj_body1{
+	width:100%;
+	height: 85vh !important;
+}
+
+div#aqzf div.box1{
+	background-image: url(../../../../css/images/box2.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+div#aqzf div.box1:hover{
+	background-image: url(../../../../css/images/box2_1.png);
+}
+
+div#aqzf div.box2{
+	position: absolute;
+	width: 68vw !important;
+    height: 48vh !important;
+    left: 29vw !important;
+    top: 4vh !important;
+}
+div#aqzf div.sj_body2{
+	width:100%;
+	height: 41vh !important;
+}
+div#aqzf div.box2{
+	background-image: url(../../../../css/images/box3.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+div#aqzf div.box2:hover{
+	background-image: url(../../../../css/images/box3_1.png);
+}
+
+div#aqzf div.box3{
+	position: absolute;
+	width: 22vw !important;
+    height: 42vh !important;
+    left: 29vw !important;
+    top: 54vh !important;
+}
+
+div#aqzf div.box4{
+	position: absolute;
+	width: 22vw !important;
+    height: 42vh !important;
+    left: 52vw !important;
+    top: 54vh !important;
+}
+
+div#aqzf div.box5{
+	position: absolute;
+	width: 22vw !important;
+    height: 42vh !important;
+    left: 75vw !important;
+    top: 54vh !important;
+}
+div#aqzf div.sj_body3{
+	width:100%;
+	height: 35vh !important;
+}
+div#aqzf div.box3,div#aqzf div.box4,div#aqzf div.box5{
+	background-image: url(../../../../css/images/box1.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#aqzf div.box3:hover,div#aqzf div.box4:hover,div#aqzf div.box5:hover{
+	background-image: url(../../../../css/images/box1_1.png);
+}
+</style>
+<div class="vbox box-con" id="aqzf">
+	<div class="box1">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">监狱警力配置</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="policePz" class="sj_body1"></div>
+	</div>
+	
+	<div class="box2">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">民警实绩执法</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="policePw" class="sj_body2"></div>
+	</div>
+	
+	<div class="box3">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">民警年龄分析</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="policeAge" class="sj_body3"></div>
+	</div>
+	
+	<div class="box4">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">民警学历分析</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="policeXL" class="sj_body3"></div>
+	</div>
+	
+	<div class="box5">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">民警专业分析</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="policeZY" class="sj_body3"></div>
+	</div>
+	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/infoMsg/infoGl/policeTongJi']);	
+</script>

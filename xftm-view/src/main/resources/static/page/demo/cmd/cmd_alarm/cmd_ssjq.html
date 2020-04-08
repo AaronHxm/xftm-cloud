@@ -1,0 +1,192 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<title>实时警情</title>
+<style type="text/css">
+div#cmd_alarm_ssjq{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+div#cmd_alarm_ssjq .jqlb{
+	 line-height:40px;
+	 height:8%;
+	 background-image:url(../../../../css/cmd_imgs/cmd_ssjq_jqlb.png);
+	 text-align:center;
+	 font-size:18px;
+	 color: #FFD343;
+}
+.col-xs-2, .col-xs-7, .col-xs-3{
+	padding-right:0px;
+	padding-left:0px;
+}
+div.bjsd{
+	margin-left: 17%;
+    width: 65%;
+    height: 6%;
+    line-height: 100%;
+	position:absolute;
+	padding:5px;
+	background-color:red;
+	text-align:center;
+	font-size:20px;
+	display: none;
+	border-radius: 5px;
+}
+div.video{
+	float:left;
+	width:50%;
+	height:100%;
+	padding:1px;
+}
+div.rightDivHeader{
+	height: 20%;
+	background-image: url("../../../../css/cmd_imgs/cmd_ssjq_right_header.png");
+	text-align: center;
+	line-height: 30px;
+	font-size: 15px;
+	color: #FFD343;
+}
+div.rightDivImg{
+	width:50%;
+	height:100%;
+	float:left;
+	padding:10px;
+}
+.img_flowing{
+	height: 80%;
+	position: absolute;
+	overflow: hidden;
+}
+.rightDiv{
+	height:30%;
+	border-bottom:1px solid #0095ff;
+	position: relative;
+	overflow: hidden;
+}
+.new_alarm{
+	height:10%;
+ 	padding:5px 10px 5px 5px;
+	text-align: center;
+	margin: 5px auto;
+	background-image:url("../../../../css/cmd_imgs/jqlb_li2.png");
+}
+
+span.glyphicon.glyphicon-option-horizontal{
+    margin: auto;
+    text-align: center;
+    transition:all 1s;
+    animation-name:myfirst;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+}
+div.rightDivImg img{
+    cursor: pointer;
+    transition: all 0.6s;
+}
+div.rightDivImg img:hover{
+	transform: scale(1.4);
+}
+div.alarm_ss{
+	position: absolute;
+	left:29.3%;
+	top:23.3%;
+	width:6.2%;
+	height:13%;
+	overflow:hidden;
+ 	background-color: red;
+	filter:alpha(Opacity=60);
+	-moz-opacity:0.4;
+	opacity: 0.4;
+	-moz-transform: skewX(-12deg);
+	-webkit-transform: skewX(-12deg);
+	-o-transform: skewX(-12deg);
+	-ms-transform: skewX(-12deg);
+	border: 1px solid red;
+	
+    transition:all 2s;
+    animation-name:myfirst;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+}
+
+
+</style>
+<div id="cmd_alarm_ssjq" v-cloak style="padding-top:10px;">
+	<div class="hbox hz-col-1">
+		<div class="col-xs-2" style="height:99.99%;width:12.5%;border-right:1px solid #1dbd91;">
+			<div class="jqlb">警&nbsp;情&nbsp;列&nbsp;表 </div>
+			<div style="height:92%;position:absolute;top:8%;overflow:auto;width:105%;">
+				<div id="alarm_list">
+					<div class="new_alarm" v-for="jqlb in jqlbList" id="li_{{jqlb.id}}" @click="openAlarm(jqlb.id)">
+						{{jqlb.text}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-7" style="height:99.99%;border:1px solid #0095ff;">
+			<div style="height:50%;border-bottom:1px solid #0095ff;">
+				<div id="bjsd_id" class="bjsd">{{thisAlarm.name}}</div>
+				<div style="background-color:#252e5a;width:100%;height:100%;">
+					<img width="100%" height="100%" src="../../../../css/cmd_imgs/alarm_map.png">
+					<div class="alarm_ss"></div>
+				</div>
+			</div>
+			<div style="height:50%;border:2px solid #0a145a;background-color:#2f4092;">
+				<div class="video" v-for="video in videoList">
+					<video autoplay="autoplay" width="100%" height="100%" loop="loop" controls="controls">
+						<source src="{{video.videoURL}}" type="video/mp4">
+					</video>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3" style="border: 1px solid #0095ff;height:99.99%;">
+			<div class="rightDiv">
+				<div class="rightDivHeader">值班民警</div>
+				<div class="img_flowing">
+					<div class="rightDivImg" v-for="po in poList">
+						<img width="80%" height="85%" style="margin-left:12%;" src="{{po.imgURL}}">
+						<div style="text-align:center;">{{po.name}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightDiv">
+				<div class="rightDivHeader">重点罪犯</div>
+				<div class="img_flowing">
+					<div class="rightDivImg" v-for="pr in prList">
+						<img width="80%" height="85%" style="margin-left:12%;" src="{{pr.imgURL}}">
+						<div style="text-align:center;">{{pr.name}}</div>
+					</div>
+				</div>
+			</div>
+			<div style="height:7%;border-bottom:1px solid #0095ff;line-height:35px;padding-left:40px;">
+				<span>监狱指挥中心</span>&nbsp;&nbsp;&nbsp;
+				<a id="cmd_hj" @click="cmd_hj()" class="btn btn-xs btn-info">呼叫</a>
+				<span class="cmd_thz" style="display: none;color:green;">通话中</span>
+				<span style="display: none;color:green;" class='glyphicon glyphicon-option-horizontal cmd_thz'></span>
+				&nbsp;&nbsp;&nbsp;
+				<a id="cmd_gd" @click="cmd_gd()" style="display: none;" class="btn btn-xs btn-info">挂断</a>
+			</div>
+			<div class="rightDiv" style="height:33%;">
+				<div class="rightDivHeader">处置流程</div>
+				<div class="img_flowing" style="height:80%;width:100%;">
+					<div style="width:72%;height:100%;float:left;padding-top:10px;">
+						<div style="padding-left:10px;padding-bottom:10px;font-size:14px;" v-for="position in positionList">{{position.id}}、{{position.text}}</div>
+					</div>
+					<div style="width:26%;height:56%;position:absolute;bottom:0px;right:0px;">
+						<a class="btn btn-sm btn-primary">&nbsp;接&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;警&nbsp;</a>
+						<br><br>
+						<a class="btn btn-sm btn-primary">应急处突</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/cmd/cmd_alarm/cmd_ssjq']);
+</script>

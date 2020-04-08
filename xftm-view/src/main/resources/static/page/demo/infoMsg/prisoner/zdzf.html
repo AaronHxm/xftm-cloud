@@ -1,0 +1,178 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style type="text/css">
+div#zfdk {
+	padding: 10px;
+}
+div.vbox{
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+	-moz-box-orient:vertical;
+	-webkit-box-orient:vertical;
+	box-orient:vertical;
+	overflow: auto;
+	padding: 10px;
+}
+div.vbox table.hz-col-1{
+	width: 100%;
+	margin: 0px auto;
+}
+div.vbox table.hz-col-1 tbody tr td{
+	padding: 20px;
+	border: none;
+}
+div.vbox table.hz-col-1 tbody tr td.td_title{
+	padding: 20px 10px;
+	text-align: right;
+	font-size: 15px;
+	font-weight: bold;
+}
+div.vbox table#baseInfo tbody tr td{
+    border: 1px solid #1f699e;
+    text-align: center;
+    font-size:14px;
+}
+div.vbox table#baseInfo tbody tr td.remark{
+	padding: 0px;
+	height: 100px;
+}
+div.vbox table#baseInfo tbody tr td.remark textarea{
+	width: 100%;
+	height: 100%;
+	text-indent: 5px;
+	line-height: 20px;
+	letter-spacing: 2px;
+}
+</style>
+<div class="vbox box-con" id="zdzf">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: 99%;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	<div class="vbox hz-col-1" id="prisoner_panel" style="display:none;">
+		<table class="hz-col-1" style="width: 100%;height:40%">
+			<tr>
+				<td class="td_title">所属监狱：</td>
+				<td v-text="prisoner.bs"></td>
+				<td class="td_title">罪犯名称：</td>
+				<td v-text="prisoner.pr_name"></td>
+				<td class="td_title">性别：</td>
+				<td v-text="prisoner.pr_gender"></td>
+				<td rowspan="3"><img src="../img/3302013155.png" style="width: 120px;height: 150px;"></td>
+			</tr>
+			<tr>
+				<td class="td_title">所属监区：</td>
+				<td v-text="prisoner.pr_area"></td>
+				<td class="td_title">入监日期：</td>
+				<td v-text="prisoner.pr_arrival_day"></td>
+				<td class="td_title">所有罪名：</td>
+				<td v-text="prisoner.pr_samecharge"></td>
+			</tr>
+			<tr>
+				<td class="td_title">刑期：</td>
+				<td v-text="prisoner.pr_term"></td>
+				<td class="td_title">刑期开始：</td>
+				<td v-text="prisoner.pr_termbegin"></td>
+				<td class="td_title">刑期结束：</td>
+				<td v-text="prisoner.pr_termend"></td>
+			</tr>
+		</table>
+		<table class="hz-col-1" id="baseInfo" style="width: 100%;height:57%">
+			<tr>
+				<td class="td_title">民族</td>
+				<td v-text="prisoner.pr_nationality"></td>
+				<td class="td_title">出生日期</td>
+				<td v-text="prisoner.pr_birthday"></td>
+				<td class="td_title">身份证号</td>
+				<td v-text="prisoner.sfzh"></td>
+			</tr>
+			<tr>
+				<td class="td_title">文化程度</td>
+				<td v-text="prisoner.pr_education"></td>
+				<td class="td_title">职业</td>
+				<td v-text="prisoner.pr_jobcareer"></td>
+				<td class="td_title">监管等级</td>
+				<td v-text="prisoner.pr_level"></td>
+			</tr>
+<!-- 			<tr> -->
+<!-- 				<td class="td_title">犯罪事实</td> -->
+<!-- 				<td colspan="5" class="remark"> -->
+<!-- 					<textarea>{{prisoner.pr_cause}}</textarea> -->
+<!-- 				</td> -->
+<!-- 			</tr> -->
+			<tr>
+				<td class="td_title">户口分类</td>
+				<td v-text="prisoner.hkfl"></td>
+				<td class="td_title">政治面貌</td>
+				<td v-text="prisoner.bqmm"></td>
+				<td class="td_title">婚姻状况</td>
+				<td v-text="prisoner.hy"></td>
+			</tr>
+			<tr>
+				<td class="td_title">户籍</td>
+				<td v-text="prisoner.pr_regaddress"></td>
+				<td class="td_title">户籍详细</td>
+				<td colspan="3" v-text="prisoner.pr_regaddress"></td>
+			</tr>
+			<tr>
+				<td class="td_title">团伙犯案</td>
+				<td v-text="prisoner.pr_multicrime"></td>
+				<td class="td_title">逮捕日期</td>
+				<td v-text="prisoner.dbrq"></td>
+				<td class="td_title">逮捕机关</td>
+				<td v-text="prisoner.dbjg"></td>
+			</tr>
+			<tr>
+				<td class="td_title">团伙人数</td>
+				<td v-text="prisoner.thrs"> </td>
+				<td class="td_title">同案号</td>
+				<td colspan="3" v-text="prisoner.tah"></td>
+			</tr>
+			<tr>
+				<td class="td_title">一审字号</td>
+				<td v-text="prisoner.yszh"></td>
+				<td class="td_title">一审机关</td>
+				<td colspan="3" v-text="prisoner.ysjg"></td>
+			<tr>
+			<tr>
+				<td class="td_title">案犯类别</td>
+				<td v-text="prisoner.xaflb"></td>
+				<td class="td_title">分押类型</td>
+				<td v-text="prisoner.fylx"></td>
+				<td class="td_title">常押新收</td>
+				<td v-text="prisoner.cyxs"></td>
+			</tr>
+			<tr>
+				<td class="td_title">剥夺年限</td>
+				<td v-text="prisoner.bznx"></td>
+				<td class="td_title">罚金</td>
+				<td v-text="prisoner.fj"></td>
+				<td class="td_title">减刑尺度</td>
+				<td v-text="prisoner.jxcd"></td>
+			</tr>
+			<tr>
+				<td class="td_title">起诉字号</td>
+				<td v-text="prisoner.qszh"></td>
+				<td class="td_title">起诉机关</td>
+				<td colspan="3" v-text="prisoner.qsjg"></td>
+			</tr>
+			<tr>
+				<td class="td_title">终审情况</td>
+				<td v-text="prisoner.zsqk"></td>
+				<td class="td_title">终审字号</td>
+				<td v-text="prisoner.zszh"></td>
+				<td class="td_title">终审机关</td>
+				<td v-text="prisoner.zsjg"></td>
+			</tr>
+		</table>
+	</div>	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/prisoner/zdzf']);
+</script>

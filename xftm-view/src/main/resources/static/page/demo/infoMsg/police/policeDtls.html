@@ -1,0 +1,202 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style>
+div.top{
+	width: 100%;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 1);
+}
+div.top div.left{
+	width: 5%;
+	height: 100%;
+	float: left;
+	background-image: url(../../../css/imp/timg_1_left2.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+div.top div.left:hover{
+	background-image: url(../../../css/imp/timg_1_left.png);
+	cursor: pointer;
+}
+div.top div.right{
+	width: 5%;
+	height: 100%;
+	float: right;
+	background-image: url(../../../css/imp/timg_1_right2.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+div.top div.right:hover{
+	background-image: url(../../../css/imp/timg_1_right.png);
+	cursor: pointer;
+}
+div.top div.tabMenus{
+	width: 90%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+}
+div.top div.tabMenus div.tabBox{
+	width: auto;
+	height: 100%;
+}
+div.top div.tabMenus div.tabBox div.menu{
+	width: 120px;
+	height: 100%;
+	float: left;
+	color: #000;
+	background-color: rgba(255, 255, 255, 1);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+div.top div.tabMenus div.tabBox div.menu:hover{
+	color: #fff;
+	background-color: rgba(31, 85, 111, 0.64);
+}
+div.top div.tabMenus div.tabBox div.selected{
+	color: #fff;
+	background-color: rgba(0, 92, 136, 1);
+}
+div.hbox{
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+	-moz-box-orient:vertical;
+	-webkit-box-orient:vertical;
+	box-orient:vertical;
+	overflow: auto;
+	background-color: rgba(31, 85, 111, 0.64);
+}
+div.hbox table.hz-col-1{
+	width: 100%;
+	margin: 0px auto;
+}
+div.hbox table.hz-col-1 tbody tr td{
+	padding: 20px;
+	border: none;
+}
+div.hbox table.hz-col-1 tbody tr td.td_title{
+	padding: 20px 10px;
+	text-align: right;
+	font-size: 15px;
+	font-weight: bold;
+}
+div.hbox table#baseInfo tbody tr td{
+    border: 1px solid #1f699e;
+    text-align: center;
+    font-size:14px;
+}
+div.hbox table#baseInfo tbody tr td.remark{
+	padding: 0px;
+	height: 100px;
+}
+div.hbox table#baseInfo tbody tr td.remark textarea{
+	width: 100%;
+	height: 100%;
+	text-indent: 5px;
+	line-height: 20px;
+	letter-spacing: 2px;
+}
+div.hbox div#detailDiv{
+	width: 99%;
+	height: 600px;
+	display: none;
+	margin-left:0.5%;
+}
+</style>
+<div class="vbox box-con" id="policeDetail">
+	<div class="top">
+		<div class="left" @click="menuMove(-1)"></div>
+		<div class="tabMenus">
+			<div class="tabBox">
+				<div class="menu selected" id="menu_0" @click="openMenu(0)">基本信息</div>
+				<div class="menu" id="menu_{{item.type}}" @click="openMenu(item.type)" v-cloak v-if="policeItem.length>0 && item.nums>0" v-for="item in policeItem">{{item.type_name}}({{item.nums}})</div>
+			</div>
+		</div>
+		<div class="right" @click="menuMove(1)"></div>
+	</div>
+	<div class="hbox hz-col-1">
+		<table class="hz-col-1">
+			<tr>
+				<td class="td_title">单位：</td>
+				<td v-text="police.bs"></td>
+				<td class="td_title">警员姓名：</td>
+				<td v-text="police.police_name"></td>
+				<td class="td_title">所属部门：</td>
+				<td v-text="police.depname"></td>
+				<td rowspan="2"><img src="../img/police.jpg" style="width: 80px;height: 100px;"></td>
+			</tr>
+			<tr>
+				<td class="td_title">性别：</td>
+				<td v-text="police.police_sex"></td>
+				<td class="td_title">现任职务：</td>
+				<td v-text="police.adminpostnow"></td>
+				<td class="td_title">工作机号：</td>
+				<td v-text="police.police_work_phone_number"></td>
+			</tr>
+		</table>
+		<table class="hz-col-1" id="baseInfo">
+			<tr>
+				<td class="td_title">现属部门</td>
+				<td v-text="police.depnamenow"></td>
+				<td class="td_title">行政职务</td>
+				<td v-text="police.adminpost"></td>
+				<td class="td_title">党内职务</td>
+				<td v-text="police.partypostname"></td>
+			</tr>
+			<tr>
+				<td class="td_title">现任职务</td>
+				<td v-text="police.adminpostnow"></td>
+				<td class="td_title">手机号</td>
+				<td v-text="police.police_mobile_phone_number"></td>
+				<td class="td_title">警衔</td>
+				<td v-text="police.police_rank"></td>
+			</tr>
+			<tr>
+				<td class="td_title">车牌号</td>
+				<td v-text="police.police_car_plate"></td>
+				<td class="td_title">籍贯</td>
+				<td v-text="police.police_native_place"></td>
+				<td class="td_title">身份证号</td>
+				<td >31113261523153123</td>
+			</tr>
+			<tr>
+				<td class="td_title">生日</td>
+				<td v-text="police.police_birthday"></td>
+				<td class="td_title">紧急联系人</td>
+				<td v-text="police.police_emergency_contact"></td>
+				<td class="td_title">紧急联系电话</td>
+				<td v-text="police.police_emergency_contact_phone"></td>
+			</tr>
+			<tr>
+				<td class="td_title">政治面貌</td>
+				<td v-text="police.politics_status"></td>
+				<td class="td_title">参加工作时间</td>
+				<td v-text="police.work_time"></td>
+				<td class="td_title">入党时间</td>
+				<td v-text="police.join_party_time"></td>
+			</tr>
+			<tr>
+				<td class="td_title">毕业学校</td>
+				<td v-text="police.graduate_school"></td>
+				<td class="td_title">专业</td>
+				<td v-text="police.police_domain"></td>
+				<td class="td_title">学历</td>
+				<td v-text="police.police_education"></td>
+			</tr>
+		</table>
+		<div class="vbox hz-col-1" id="detailDiv"></div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/infoMsg/police/policeDtls']);
+</script>

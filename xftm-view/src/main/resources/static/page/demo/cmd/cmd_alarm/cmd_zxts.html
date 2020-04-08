@@ -1,0 +1,239 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../css/cic_common.css" charset="utf-8">
+<title>咨询投诉管理</title>
+<style type="text/css">
+div#zxts{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+div#cmd_alarm_zxts{
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+}
+div#zxts div#search_panel div.div_sel select{
+	width: 100%;
+	height: 34px;
+}
+div.div_sel select{
+	width:100%;
+	height: 34px;
+	border: 1px solid #1f699e;
+	background-color: rgba(3,21,40,0);
+	font-size: 14px;
+	padding: 6px 12px;
+}
+div.div_sel select option{
+	background-color: #021B36;
+} 
+</style>
+<div class="vbox box-con" id="zxts">
+	<div class="buttons btn-box1" style="padding: 10px;">
+		<a class="hbtn btn_primary btn_large" @click="openSearchPanel()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+		<a class="hbtn btn_primary btn_large" @click="openAddPanel()"><i class="btn_icon icon_add"></i><span>添加</span></a>
+		<a class="hbtn btn_primary btn_large" @click="openEditPanel()"><i class="btn_icon icon_edit"></i><span>修改</span></a>
+	</div>
+<div id="cmd_alarm_zxts">
+	<table id="cmd_alarm_zxts_table"></table>
+</div>
+	<!-- 查询面板 -->
+	<div class="vbox hz-col-1" id="search_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">日期</label>
+					    <div class="col-xs-10">
+					    	<hz-date tip="日期"  :val.sync="search.time"/>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">类别</label>
+					    <div class="col-xs-10">
+					     	<div class="div_sel">
+					      		<select class="sel_train" placeholder="请选择培训状态">
+					      			<option>请选择投诉类别</option>
+					      			<option>咨询</option>
+					      			<option>投诉</option>
+					      			<option>建议</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		    <a class="hbtn btn_primary btn_mini pull-right" @click="searchDb()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+		</div>
+	</div>
+	<!-- 添加面板 -->
+	<div class="vbox hz-col-1" id="add_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布日期</label>
+					    <div class="col-xs-10">
+					    	<hz-date tip="发布日期"   :val.sync="search.time"/>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">类别</label>
+					    <div class="col-xs-10">
+					    	<div class="div_sel">
+					      		<select class="sel_train">
+					      			<option>请选择投诉类别</option>
+					      			<option>咨询</option>
+					      			<option>投诉</option>
+					      			<option>建议</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布内容</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入发布内容" v-model="search.content">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布民警</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入发布民警" v-model="search.fbmj">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">处理状态</label>
+					    <div class="col-xs-10">
+					    	<hz-select tip="请选择状态"code=""  
+					     	:id.sync="lbList.name"/>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		   <a class="hbtn btn_primary btn_mini pull-right" @click="closeAddPanel()"><i class="btn_icon icon_add"></i><span>添加</span></a>
+		</div>
+	</div>
+	<!-- 编辑面板 -->
+		<div class="vbox hz-col-1" id="add_edit_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">编号</label>
+					    <div class="col-xs-10">
+					      	 <input class="form-control" placeholder="请填写编号" v-model="search.bh" maxlength="20">
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">类别</label>
+					    <div class="col-xs-10">
+					     	<div class="div_sel">
+					      		<select class="sel_train">
+					      			<option>请选择投诉类别</option>
+					      			<option selected="selected">咨询</option>
+					      			<option>投诉</option>
+					      			<option>建议</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布日期</label>
+					    <div class="col-xs-10">
+					    	<hz-date tip="请选择时间"   :val.sync="search.time"/>
+					    </div>
+					</div>
+				</div>
+					<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布内容</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入发布内容" v-model="search.content">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">发布民警</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入发布民警" v-model="search.fbmj">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">处理状态</label>
+					    <div class="col-xs-10">
+					    	<div class="div_sel">
+					      		<select class="sel_train">
+					      			<option>请选择处理状态</option>
+					      			<option>处理中</option>
+					      			<option>已处理</option>
+					      		</select>
+					      	</div>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		    <a class="hbtn btn_primary btn_mini pull-right save" @click="savePannel()"><i class="btn_icon icon_save"></i><span>提交</span></a>
+		</div>
+	</div>
+	<div class="vbox hz-col-1" id="zxts_panel" style="display:none;">
+		<table class="hz-col-1" id="baseInfo" style="width: 100%;height:57%">
+			<tr>
+				<td class="td_title">标题</td>
+				<td v-text="zxtsDetl.tittle"></td>
+			</tr>
+			<tr>
+				<td class="td_title">详细内容</td>
+				<td v-text="zxtsDetl.nr"></td>
+			</tr>
+			<tr>
+				<td class="td_title">发布民警</td>
+				<td v-text="zxtsDetl.fbmj"></td>
+			</tr>
+			<tr>
+				<td class="td_title">发布时间</td>
+				<td v-text="zxtsDetl.fbsj"></td>
+			</tr>
+		</table>
+	</div>	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/cmd/cmd_alarm/cmd_zxts']);
+</script>

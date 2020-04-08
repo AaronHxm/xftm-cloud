@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/webuploader/webuploader.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<title>交接班</title>
+<style type="text/css">
+div#cmd_everyday_jjb{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+div.col-xs-5, div.col-xs-4, div.col-xs-3{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+div.titleHeader{
+	height: 10%;
+	font-size: 20px;
+	line-height: 55px;
+	text-align: center;
+	background-image:url(../../../../css/cmd_imgs/cmd_ssjq_jqlb.png);
+	background-size:100% 100%;
+	color: #FFD343;
+}
+div.jbyz{
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	font-size:16px;
+}
+div.jb_plan{
+	height:20%;
+	border:1px solid #49bad4;
+	border-radius:5px;
+	margin-top:5px;
+}
+div.jb_plan:hover{
+	border:1px solid #afbec1;
+	box-shadow: 1px 1px 1px #afbec1;
+}
+div.jb_button{
+	width: 33px;
+	height: 61px;
+	margin-top: 36%;
+	font-size: 16px;
+	margin-left: 34%;
+	border: 1px solid #0095ff;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 29px;
+}
+div.jb_button:hover{
+	border: 1px solid #49bad4;
+	border-radius: 5px;
+}
+.webuploader-pick{
+	padding: 5px 10px;
+}
+</style>
+<div id="cmd_everyday_jjb" v-cloak>
+	<div class="hz-col-1">
+		<div class="col-xs-4" style="height:100%;">
+			<div style="border:1px solid #2996d6;height:99%;margin-top:5px;">
+				<div class="titleHeader">交班填报</div>
+				<div style="">
+					<form>
+					  <div class="form-group">
+					    <label>交班描述</label>
+					    <textarea placeholder="请输入交班人" style="background-color: transparent;border: 1px solid #338c67;border-radius: 5px;font-size: 16px;" class="form-control" rows="5">交班人:李某某</textarea>
+					  </div>
+					  <div class="form-group">
+					  	<div style="width:100%;height:50%;" id="upload_img">
+					  		<div style="position: absolute;overflow: auto;width:97%;height:43%;border: 1px solid #2f9272;" id="thelist" class="uploader-list">
+					  		 <textarea placeholder="请输入交班内容" style="background-color: transparent;border: 1px solid #338c67;border-radius: 5px;font-size: 16px;width: 100%;height: 100%;" class="form-control" rows="5"></textarea>
+					  		</div>
+						  	<div id="filePicker" style="position: absolute;overflow: auto;top: 83%;margin-left:10px;">选择图片</div>
+					  	</div>
+					  </div>
+					  <button style="float:right;margin-right:10px;margin-bottom:10px;" id="ctlBtn" type="submit" class="btn btn-info">交&nbsp;&nbsp;&nbsp;班</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-5" style="height:100%;">
+			<div class="" style="border:1px solid #2996d6;height:99%;margin-top:5px;">
+				<div class="titleHeader">接班</div>
+				<div>
+					<div class="jb_plan">
+						<div style="float:left;width:85%;">
+							<div style="padding: 10px;">
+								1、岗位生产情况和任务完成情况;
+								2、交产品质量情况;
+								3、交设备仪表运行情况及防冻防凝情况;
+								4、交操作调整及工艺指标执行情况;
+								5、交岗位跑冒滴漏情况;
+								6、交不安全因素，采取的预防措施及事故处理情况;
+								7、交岗位记录情况;<br><br>
+								<span style="font-size: 18px;">接班人:张某某</span>
+							</div>
+						</div>
+						<div style="float:left;width:15%;">
+							<div class="jb_button">接班</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3" style="height:100%;">
+			<div class="titleHeader">交接班制度及原则</div>
+			<div style="height:89.5%;border:1px solid #2996d6;">
+				<div style="height:88%;position:absolute;overflow:auto;">
+					<div class="jbyz" v-for="jb in jbs">{{jb.text}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/cmd/cmd_everyday/cmd_jjb']);
+</script>

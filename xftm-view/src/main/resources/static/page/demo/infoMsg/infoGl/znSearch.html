@@ -1,0 +1,197 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style type="text/css">
+img{
+	border: 0;
+}
+div#znSearch{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+div#znSearch div.box1{
+	position: absolute;
+	width: 59vw !important;
+    height: 88vh !important;
+    left: 2vw !important;
+    top: 9vh !important;
+}
+div#znSearch div.sj_body1{
+	width:100%;
+	height: 81vh !important;
+}
+div#znSearch div.sj_body2{
+	width:100%;
+	height: 36vh !important;
+}
+div#znSearch div.box1{
+	background-image: url(../../../../css/images/box4.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+div#znSearch div.box1:hover{
+	background-image: url(../../../../css/images/box4_1.png);
+
+}
+
+div#znSearch div.box2{
+	position: absolute;
+	width: 34vw !important;
+    height: 43vh !important;
+    left: 62vw !important;
+    top: 9vh !important;
+}
+
+div#znSearch div.box3{
+	position: absolute;
+	width: 34vw !important;
+    height: 43vh !important;
+    left: 62vw !important;
+    top: 54vh !important;
+}
+
+
+div#znSearch div.box2,div#znSearch div.box3{
+	background-image: url(../../../../css/images/box1.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+div#znSearch div.box2:hover,div#znSearch div.box3:hover{
+	background-image: url(../../../../css/images/box1_1.png);
+
+}
+
+div#znSearch div.search_box{
+	position: absolute;
+	width: 20vw !important;
+    height: 5.4vh !important;
+    left: 1.8vw !important;
+    top: 2vh !important;
+    padding-right: .6vh !important;
+    padding-left: .6vh !important;
+
+}
+div#znSearch div.search_box div.left{
+	width:70%;
+	height:inherit;
+	float:left;
+}
+div#znSearch div.search_box div.right{
+	width:25%;
+	height:5.2vh !important;
+	margin-left:2%;
+	float:left;
+	border: 1px solid #0390f5;
+	background-image: url(../../../../css/images/list_bg.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius: 3px;
+}
+
+div#znSearch div.search_box div.right div.btn{
+	width:2.6vw !important;
+	height:inherit;
+	margin-left:1vw !important;
+	background-image: url(../../../../css/images/search@2x.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	cursor: pointer;
+}
+
+
+div#znSearch div.search_box .input_box {
+    width: 100%;
+    height:inherit;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #0390f5;
+    border-radius: 1px;
+    z-index:2;
+}
+div#znSearch div.search_box .input_box:focus,div#znSearch div.search_box .input_box:hover,div#znSearch div.search_box div.right:hover,div#znSearch div.search_box div.right:hover:focus {
+    border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+#prisonerTitle th{
+	color:#ffd343;
+}
+#prisonerTitle th span{
+    color:#06E6EF;
+}
+
+
+</style>
+<div id="znSearch">
+	<div class="search_box">
+		<div class="left">
+	      	 <input class="input_box"  id="inputKey" value="李兴发">
+	    </div>
+	    <div class="right" @click="searchPrison()"><div class="btn"></div></div>
+	</div>
+	<div class="box1">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">罪犯关系</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="mainChart" class="sj_body1"></div>
+	</div>
+	
+	<div class="box2">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">分析研判</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div id="prisonPie" class="sj_body2"></div>
+	</div>
+	
+	<div class="box3">
+		<div class="sj_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead id="prisonerTitle">
+					<tr>
+						<th colspan="2" style="color:#ffd343;">罪犯信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div  class="sj_body2" style=" padding-right: .6vh !important;padding-left: .6vh !important;">
+			<div class="hbox hz-col-1">
+				<div id="prisonerBase" style="width: 100%;height: 35vh;">
+			       	<table id="table"></table>
+		       	</div>
+			</div>	
+		</div>
+	</div>
+	<div class="vbox hz-col-1" id="prisoner_panel" style="display:none;">
+		<iframe id="contentHTML" class="frm-content" src=""></iframe>
+	</div>
+	
+	<img id="prImg"  src="" width="90" height="120" style="display:none;">
+</div>
+
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/infoGl/znSearch']);
+</script>

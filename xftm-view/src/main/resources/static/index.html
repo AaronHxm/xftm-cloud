@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<title>应急指挥系统- 首页</title>
+<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<style type="text/css">
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+html, body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+[v-cloak] {
+	display: none !important;
+}
+ul{
+	list-style-type: none;
+}
+body {
+	position: relative;
+	background-image: url(css/images/0002.png);
+	/* background-color: #4f7f9b;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4f7f9b), to(#293c55));
+	background-image: -webkit-linear-gradient(top, #4f7f9b, #293c55);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4f7f9b), to(#293c55));
+	background-image: linear-gradient(to bottom, #4f7f9b, #293c55); */
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	line-height: normal !important;
+}
+div.box-main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 11.8vh 0px 0px 0px;
+}
+div.box-head {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 11.8vh;
+	z-index: 0;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-display: flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    
+}
+div.box-head >.head{
+	padding-left: 10%;
+    height: 100%;
+    line-height: 11.8vh;
+    background-image: url(css/images/logo.png);
+    background-repeat: no-repeat;
+    background-position: 2.7vw center;
+    background-size: 3.8vw auto;
+}
+div.box-head >.head h1{
+	margin: 0;
+    padding: 0;
+    height: 100%;
+    line-height: 13vh;
+    font-size: 5.3vh;
+    letter-spacing: 0.2vw;
+     background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#ffa300));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+    font-family: '黑体';
+    font-weight: bold;
+    user-select: none;
+}
+div.box-head >.head h1 span{
+	font-size: 70%;
+	letter-spacing: 0.1vw;
+	margin-left: 1.3vw;
+	color: #fff;
+	font-family: '宋体';
+    font-weight: bold;
+	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#fff));
+     -webkit-background-clip: text;
+}
+div.box-head >.drop-out{
+	width: 20vw;
+	height: 4.5vh;
+	background-image: url(css/images/xinxi.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 14px;
+    line-height: 4.2vh;
+	position: absolute;
+	top: 4.7vh;
+	right: 3vw;
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-display: flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-around;
+}
+div.box-head >.drop-out >div{
+	color: #0086c8;
+	width: 100%;
+    display: flex;
+    text-align: center;
+}
+div.box-head >.drop-out >div >.js_user-name{
+    color: #00ffff;
+    overflow: hidden;
+    width: 70%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px #000;
+    margin-left: 10px;
+}
+div.box-head >.drop-out >button{
+	margin-top: -5px;
+    border: 0;
+    background: 0;
+    outline:none
+}
+div.box-head >.drop-out >button >i.iconfont{
+	font-size: 24px;
+    color: #0288ec;
+}
+div.box-head >.drop-out >button:hover >i.iconfont{
+    color: #00ffff;
+}
+
+
+div.box-body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	padding-bottom:60px;
+}
+
+div.box-body >iframe.frm-content {
+	width: 100%;
+	height: 100%;
+	border: 0px none;
+	overflow: visible;
+}
+
+div.box-foot{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	height: 60px;
+	background-image: url(css/images/blackLine.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div.box-foot ul.menu_ul{
+	width:95.3%;
+	height:60px;
+	margin:0 auto;
+	display:block;
+}
+.clearfix{
+	zoom:1;
+}
+
+div.box-foot ul.menu_ul li{
+	display: list-item;
+    width:11.8vw;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+	font-size:16px; 
+	margin: 5 auto;
+    float:left;
+    cursor: pointer;
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+  
+}
+ul.menu_ul li span {
+    width: 65%;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+div.box-foot ul.menu_ul li span.menuName{
+	padding-top: .37vw;
+	padding-left: 2.5vw;
+    width: 100%;
+    font-family: 黑体;
+    text-shadow: rgb(0, 0, 0) 1px 2px 1px;
+}
+div.box-foot ul.menu_ul li.menuli_0{
+	background-image: url(css/images/menu101.png);
+}
+div.box-foot ul.menu_ul li.menuli_0:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu101_1.png); 
+}
+div.box-foot ul.menu_ul .checked_0{
+	color:#ffd343; 
+	background-image: url(css/images/menu101_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_1{
+	background-image: url(css/images/menu102.png);
+}
+div.box-foot ul.menu_ul li.menuli_1:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu102_1.png); 
+}
+div.box-foot ul.menu_ul .checked_1{
+	color:#ffd343; 
+	background-image: url(css/images/menu102_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_2{
+	background-image: url(css/images/menu103.png);
+}
+div.box-foot ul.menu_ul li.menuli_2:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu103_1.png); 
+}
+div.box-foot ul.menu_ul .checked_2{
+	color:#ffd343; 
+	background-image: url(css/images/menu103_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_3{
+	background-image: url(css/images/menu104.png);
+}
+div.box-foot ul.menu_ul li.menuli_3:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu104_1.png); 
+}
+div.box-foot ul.menu_ul .checked_3{
+	color:#ffd343; 
+	background-image: url(css/images/menu104_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_4{
+	background-image: url(css/images/menu105.png);
+}
+div.box-foot ul.menu_ul li.menuli_4:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu105_1.png); 
+}
+div.box-foot ul.menu_ul .checked_4{
+	color:#ffd343; 
+	background-image: url(css/images/menu105_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_5{
+	background-image: url(css/images/menu106.png);
+}
+div.box-foot ul.menu_ul li.menuli_5:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu106_1.png); 
+}
+div.box-foot ul.menu_ul .checked_5{
+	color:#ffd343; 
+	background-image: url(css/images/menu106_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_6{
+	background-image: url(css/images/menu107.png);
+}
+div.box-foot ul.menu_ul li.menuli_6:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu107_1.png); 
+}
+div.box-foot ul.menu_ul .checked_6{
+	color:#ffd343; 
+	background-image: url(css/images/menu107_1.png);
+}
+div.box-foot ul.menu_ul li.menuli_7{
+	background-image: url(css/images/menu102.png);
+}
+div.box-foot ul.menu_ul li.menuli_7:hover{
+     color:#ffd343; 
+     background-image: url(css/images/menu102_1.png); 
+}
+div.box-foot ul.menu_ul .checked_7{
+	color:#ffd343; 
+	background-image: url(css/images/menu102_1.png);
+}
+</style>
+</head>
+<body>
+	<div class="box-main" id="index">
+		<div class="box-head">
+			<div class="head">
+				<h1>XX省监狱管理局应急指挥管理平台<span id="bigDataTitle"></span></h1>
+			</div>
+			<div class="drop-out">
+				<div>
+					<nobr class="js_user-name"><span id="loginTip">用户 · XXX</span> 欢迎您!</nobr>
+				</div>
+				<button><i class="iconfont icon-guanbi" @click='loginOut()'></i></button>
+			</div>
+		</div>
+		<div class="box-body">
+<!--			<div id="indexIframe" class="frm-content" > </div>-->
+			<iframe id="indexIframe" class="frm-content" src="home.html"></iframe>
+		</div>
+		<div class="box-foot">
+			<ul id="menu_ul" class="menu_ul clearfix">
+				<li v-cloak v-for="m in menuList" class="menuli_{{m.id}}" id="{{m.id}}"  @click="openMenu(m)">
+					<span class="menuName">{{m.name}}</span>
+				</li>
+			</ul>
+			 
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/index']);
+</script>
+</html>

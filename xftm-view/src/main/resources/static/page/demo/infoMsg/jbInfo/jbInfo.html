@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<style type="text/css">
+div#jbInfo{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+<div id="jbInfo">
+	<div class="win_top">
+		<ul id="menusTwo" class="menus2 clearfix">
+			<li class="menus2_li"  v-cloak v-for="M in menuListThree" id="{{M.id}}" @click="openMenu(M)" >{{M.name}}</li>
+		</ul>
+	</div>
+	<div class="win_body">
+		<iframe id="winIframe" class="frm-content" src="jbList.html"></iframe>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/jbInfo/jbInfo']);
+</script>

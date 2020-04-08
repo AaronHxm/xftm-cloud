@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/cic_common.css" charset="utf-8">
+<style type="text/css">
+div#eventList{
+	padding: 10px;
+}
+</style>
+<div class="vbox box-con" id="eventList">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	
+	
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<div class="panel-group" id="accordion" style="margin-bottom: 0px;">
+				<!-- 事件报备详情 -->
+				<div class="panel panel-info" style="cursor:pointer" data-toggle="collapse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapse-contact-a" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseReport"> 事件报备详情
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseReport" class="panel-collapse collapse in">
+						<div class="panel-body" style="padding: 0px;">
+							<table class="table table-bordered table-info">
+								<tr>
+									<td class="col-xs-2 td_title">标题</td>
+									<td colspan="3" class="col-xs-10">法轮功罪犯林某某重点监控</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">上报单位</td>
+									<td class="col-xs-4" >第二监狱</td>
+									<td class="col-xs-2 td_title">数据来源</td>
+									<td class="col-xs-4">网络</td>
+								</tr>
+								<tr v-cloak v-if="eventReportShow.eri_report_type != 2">
+									<td class="col-xs-2 td_title">上报类型</td>
+									<td colspan="3" class="col-xs-10">夜间重点监控罪犯</td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">内容</td>
+									<td colspan="3" class="col-xs-10 remark">
+										<textarea readonly="readonly">法轮功罪犯林某某重点监控，10组进门左边第三个位置，下铺</textarea>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>							
+			</div>
+		</div>
+		
+	</div>
+	
+	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/infoMsg/eventReport/vitalproblem']);
+</script>

@@ -1,0 +1,175 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstraptree/bootstrap-treeview.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<style type="text/css">
+*{
+	font-size:16px;
+	list-style: none;
+}
+
+
+::-webkit-scrollbar{
+	  display:none;
+	}
+div#dailySche{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-top: 5px;
+}
+.leftDiv{
+	width: 30%;
+	height:100%;
+	overflow:scroll;
+	border: 1px solid #1E689D;
+	float: left;
+}
+.rightDiv{
+	width: 70%;
+	height: 100%;
+	overflow: hidden;
+	border: 1px solid #1E689D;
+	float: left;
+}
+
+.groupLi{
+	width: 100px; 
+	height: 30px;
+	line-height:30px;
+	background: rgba(0,0,0,0.3);
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	text-align: center;
+	border-radius:5px;
+}
+
+ div.box1{
+	border-bottom :1px solid #1E689D;
+	width: 100%;
+    height: 35%;
+}
+ div.box2{
+
+	width: 100%;
+    height: 65%;
+}
+
+div.zd_title{
+	width:100%;
+	height:6.9vh;
+	margin-bottom: 10px;
+}
+div.zd_tab{
+	width:100%;
+	height:100%;
+	padding: 10px;
+}
+
+div.zd_tab .msgDiv{
+	width: 60%;
+	height: 100%;
+	border-top: 1px solid #1E689D;
+	border-right: 1px solid #1E689D;
+	float: left
+}
+
+div.zd_tab .msgDiv .msgText
+{
+	width: 100%; 
+	height:75%; 
+	font-family: serif; 
+	background: rgba(51,122,183,0.1);
+}
+
+div.zd_tab .tempDiv{
+	width: 40%;
+	height: 100%;
+	border-top: 1px solid #1E689D;
+	float: left;
+}
+
+table.table_heard{
+    overflow: hidden;
+    background: #054f9a
+}
+table.mine_table thead tr td{
+	font-weight: normal;
+    padding: 8px;
+    text-transform: uppercase;
+    border-bottom: 0;
+    vertical-align: bottom;
+    border: 1px solid #ddd;
+    line-height: 1.4285;
+    vertical-align: middle;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    text-align: center;
+}
+</style>
+
+<div id="dailySche">
+	<div class="leftDiv">
+		<div id="tree" style=""></div>
+	</div>
+	<div class="rightDiv">
+		<div class="box1">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">联系组</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="zd_tab">
+				<ul>
+					<li class="groupLi" v-for="g in groupInfo">
+						<input type="checkbox"/>
+						{{g.groupName}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box2">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">短信发送</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="zd_tab" style="padding: 0px;">
+				<div class="msgDiv">
+			  		<textarea id="msgText" class="msgText" ></textarea>
+			  		<div style="padding: 3px;">
+			  			<label class="radio-inline">
+					        <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 立即发送
+					    </label>
+					    <label class="radio-inline">
+					        <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2">定时发送
+					    </label>
+						<button type="button" class="btn btn-primary btn-sm pull-right">发送</button>
+			  		</div>
+				</div>
+				<div class="tempDiv">
+					<div class="list-group">
+						<div :title="t.content" class="list-group-item" v-for="t in tempInfo">
+							{{t.titleInfo}}
+							<button type="button" class="btn btn-primary btn-xs pull-right" @click="useTemp(t.content)">使用</button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/emergency/dailySche/dailySche']);
+</script>

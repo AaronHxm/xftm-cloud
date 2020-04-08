@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style type="text/css">
+div#yqxx {
+	padding: 10px;
+}
+div.vbox{
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+	-moz-box-orient:vertical;
+	-webkit-box-orient:vertical;
+	box-orient:vertical;
+	overflow: auto;
+	padding: 10px;
+}
+div.vbox table.hz-col-1{
+	width: 100%;
+	margin: 0px auto;
+}
+div.vbox table.hz-col-1 tbody tr td{
+	padding: 20px;
+	border: none;
+}
+div.vbox table.hz-col-1 tbody tr td.td_title{
+	padding: 20px 10px;
+	text-align: right;
+	font-size: 15px;
+	font-weight: bold;
+}
+div.vbox table#baseInfo tbody tr td{
+    border: 1px solid #1f699e;
+    text-align: center;
+    font-size:14px;
+}
+div.vbox table#baseInfo tbody tr td.remark{
+	padding: 0px;
+	height: 100px;
+}
+div.vbox table#baseInfo tbody tr td.remark textarea{
+	width: 100%;
+	height: 100%;
+	text-indent: 5px;
+	line-height: 20px;
+	letter-spacing: 2px;
+}
+</style>
+<div class="vbox box-con" id="yqxx">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: 99%;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	<div class="vbox hz-col-1" id="prisoner_panel" style="display:none;">
+		<table class="hz-col-1" id="baseInfo" style="width: 100%;height:57%">
+			<tr>
+				<td class="td_title">标题</td>
+				<td v-text="yqList.tittle"></td>
+			</tr>
+			<tr>
+				<td class="td_title">详细内容</td>
+				<td v-text="yqList.nr"></td>
+			</tr>
+			<tr>
+				<td class="td_title">发布时间</td>
+				<td v-text="yqList.fbsj"></td>
+			</tr>
+		</table>
+	</div>	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/lqInfo/yqxx']);
+</script>

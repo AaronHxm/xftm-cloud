@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style type="text/css">
+div#mjdk{
+	padding: 10px;
+}
+select option{
+   color:white;
+   background-color:#012b36;
+}
+select:invalid{
+  color:gray;
+}
+</style>
+<div class="vbox box-con" id="feedback">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       <div class="vbox box-con" id="feedback">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	<!-- 查询面板 -->
+		<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<table class="table table-bordered table-info ">
+			<tr>
+					<td class="col-xs-2 td_title">预案类型</td>
+					<td class="col-xs-4">挟持人质事件</td>
+					<td class="col-xs-2 td_title">预案名称</td>
+					<td class="col-xs-4">保护人质安全演练</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">预案演练时间</td>
+					<td class="col-xs-4">2017-10-21</td>
+					<td class="col-xs-2 td_title">预案演练地点</td>
+					<td class="col-xs-4">XXX省XXX监狱</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">预案演练参与单位</td>
+					<td class="col-xs-10" colspan="3" style="text-align:left; padding-left:2vw">狱政部门、指挥中心、信息科、特警队</td>
+				</tr>
+				<tr>
+					<td class="col-xs-12 td_title" colspan="4">预案演练总结</td>
+				</tr>
+					<td class="col-xs-12" colspan="4" style="text-align:left; padding-left:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应急演练工作总结：根据要求，为了有效检验突发事故应急预案的科学性、实效性和可操作性，提高应对和预防火灾事故的发生，切实增强监狱应急管理能力和消防安全意识，控制和减少火灾事故对监狱和相关人员造成的危害和损失。
+  <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12月8日组织我监组织300余人开展消防应急预案演练。现总结如下：  一应急演练工作领导小组，召开专题会研究部署应急演练工作，要求各参加演练单位要制定周密的演练计划和切实可行的演练方案，做好参加演练人员的动员教育工作，确保安全，确保演练工作的实效。  
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二是为突出演练效果，有针对性的做好了前期各项准备工作，配备了模拟火源、消防器材、后勤保障物资等演练设施和物品；进一步优化了消防应急预案、应急疏散预案流程，组建成立了现场临时指挥部，同时细化完善了灭火小分队、疏散解救、后勤保障等各应急小组职责分工。  
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三是整个演练共分模拟火灾现场的疏散急救、灭火器使用两个过程。接到火灾发生的情况报告后, 现场指挥部第一时间进行了任务部署，有效指导灭火救援工作的开展；
+各应急小组分工明确、协同作战，参演人员冷静处理、沉着应对，快速及时地控制了火情，保障了人身安全，避免了财产损失。
+ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四是提升了员工的安全防火意识，提高逃生与扑灭火灾的实战技能。由专业部门工作人员进行现场讲解和指导。根据火灾发生的突发性和不确定性特点，针对火灾的起因、如何报警、及时扑救、正确疏散、自救逃生等各方面进行了细致深入的模拟和演练。根据演练情况，又通过现场示范和重点讲解进一步加深了广大员工对消防安全知识的理解和消防器材使用方法的正确掌握。    通过演练，提高了工作人员在突发紧急情况下的快速反应和实战技能，培养了遇险遇急情况下人员相互协作、互帮互助的应急意识，为进一步强化社会应急管理工作、促进辖区平安稳定发展提供了有效保障。</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- 详情面板 -->
+</div>
+	<table id="table"></table>
+       	</div>
+	</div>
+	<div class="vbox hz-col-1" id="police_panel" style="display:none;">
+		<iframe id="contentHTML" class="frm-content" src=""></iframe>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/emergency/planperform/summary']);
+</script>

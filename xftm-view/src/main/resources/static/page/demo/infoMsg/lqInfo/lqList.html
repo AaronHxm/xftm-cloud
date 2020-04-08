@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<style>
+div#lqList {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	overflow: scroll;
+}
+div#lqList div.box1,div#lqList div.box2,div#lqList div.box3,div#lqList div.box4,div#lqList div.box5,div#lqList div.box6,div#lqList div.box7{
+	background-image: url(../../../../css/images/box1.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#lqList div.box1:hover,div#lqList div.box2:hover,div#lqList div.box3:hover,div#lqList div.box4:hover,div#lqList div.box5:hover,div#lqList div.box6:hover,div#lqList div.box7:hover{
+	background-image: url(../../../../css/images/box1_1.png);
+}
+div#lqList div.box1{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 3vw !important;
+    top: 4vh !important;
+}
+div#lqList div.box2{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 35vw !important;
+    top: 4vh !important;
+}
+
+div#lqList div.box3{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 67vw !important;
+    top: 4vh !important;
+}
+
+div#lqList div.box4{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 3vw !important;
+    top: 52vh !important;
+}
+
+div#lqList div.box5{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 35vw !important;
+    top: 52vh !important;
+}
+
+div#lqList div.box6{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 67vw !important;
+    top: 52vh !important;
+}
+div#lqList div.box7{
+	position: absolute;
+	width: 30vw !important;
+    height: 45vh !important;
+    left: 3vw !important;
+    top: 100vh !important;
+}
+</style>
+<div class="vbox box-con" id="lqList">
+	<div class="box1">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省二监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="er" style="width:100%;height:100%">
+				<img src="img/tq1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box2">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省四监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="si" style="width:100%;height:100%">
+				<img src="img/tq4_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq4_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq4_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box3">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省五监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="wu" style="width:100%;height:100%">
+				<img src="img/tq5_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq5_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq5_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box4">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省六监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="liu" style="width:100%;height:100%">
+				<img src="img/tq6_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq6_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq6_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box5">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省七监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="qi" style="width:100%;height:100%">
+				<img src="img/tq7_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq7_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq7_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box6">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省八监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="ba" style="width:100%;height:100%">
+				<img src="img/tq8_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq8_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq8_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+	<div class="box7">
+		<div class="zd_title">
+			<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+				<thead>
+					<tr>
+						<th colspan="2" style="color:#ffd343;">省九监天气信息</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="zd_tab">
+			<div id="jiu" style="width:100%;height:100%">
+				<img src="img/tq8_1.png" style="width: 50%;height: 85%;position: absolute;"/>
+				<img src="img/tq8_2.png" style="width: 25%;height: 85%;position: absolute;left: 50%"/>
+				<img src="img/tq8_3.png" style="width: 25%;height: 85%;position: absolute;left: 75%"/>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/infoMsg/lqInfo/lqList']);
+</script>

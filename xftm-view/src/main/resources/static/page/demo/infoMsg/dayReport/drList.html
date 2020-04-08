@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/cic_common.css" charset="utf-8">
+<style type="text/css">
+div#drList{
+	padding: 10px;
+}
+</style>
+<div class="vbox box-con" id="drList">
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	
+	
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;padding-bottom: 1px;" id="overflow">
+			<table class="table table-bordered table-info">
+				<tr>
+					<td colspan="2" class="col-xs-10 td_title" style="font-size: 18px;">xx省第二监狱要情日报表</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="col-xs-10 td_title" style="font-size: 15px;">
+						<div style="float: left;">单位: <span>xx省第二监狱</span></div>
+						<div style="float: right;">填报时间: <span>2017-12-09</span></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">主要汇报内容</td>
+					<td class="col-xs-8 td_title">当日情况</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">监狱罪犯概况</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">截至今日，监狱在册罪犯3591人，较昨日减少6人，在押3561人，较昨日减少6人，其中暂予监外执行25人，解回再审5人，特情借用0人，中心医院住院3人，中心医院借用护理人员0人，监狱医院29人，高度戒备管理罪犯9人，隔离审查0人，xx医院精神病区（重症）住院3人，社会医院住院0人。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">罪犯进出大门</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">今日罪犯出监7人：金华医院1人，假释5人，释放1人；今日罪犯入监1人：xxxx医院回监1人。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">外来人员车辆</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">今日外来人员进出156人次，车辆进出39车次。</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">安防设施运行</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">正常</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">罪犯违规违纪</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">正常</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">重大活动上报</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">无</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2 td_title">其他</td>
+					<td class="col-xs-8" style="padding: 0px;height: 120px;">
+						<textarea  readonly="readonly">无</textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/demo/infoMsg/dayReport/drList']);
+</script>

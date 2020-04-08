@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+<style>
+table.table-info{
+	height: auto;
+}
+table.table-info tbody tr td.remark{
+	height: 150px;
+}
+div#prisonerMoveApproveInfo {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+div#prisonerMoveApproveInfo .buttons.btn-box1{
+	position: absolute;
+	width: 96%;
+    height: 5%;
+    left: 2%;
+    top: 2%;	
+}
+div#prisonerMoveApproveInfo .hbox.hz-col-1{
+	position: absolute;
+	width: 96%;
+    height: 90%;
+    left: 2%;
+    top: 7%;	
+}
+</style>
+<div class="vbox box-con" id="prisonerMoveApproveInfo">
+	<div class="buttons btn-box1">
+		<a class="hbtn btn_primary btn_large" @click="openSearchPanel()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+	</div>
+	<div class="hbox hz-col-1">
+		<div style="width: 100%;height: auto;">
+	       	<table id="table"></table>
+       	</div>
+	</div>
+	<!-- 查询面板 -->
+	<div class="vbox hz-col-1" id="search_panel" style="display:none;">
+		<div class="hz-col-8">
+			<form class="form-horizontal" style="margin-top: 20px;" autocomplete="off">
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">开始日期</label>
+					    <div class="col-xs-4">
+					    	<hz-date tip="开始日期"   :val.sync="search.startdate"/>
+					    </div>
+					    <label class="col-xs-2 control-label">结束日期</label>
+					    <div class="col-xs-4">
+					    	<hz-date tip="结束日期"  :val.sync="search.enddate"/>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">调动前单位</label>
+					    <div class="col-xs-4">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入调动前单位" v-model="search.moveBeforeOrg">
+					      	</div>
+					    </div>
+					    <label class="col-xs-2 control-label">调动后单位</label>
+					    <div class="col-xs-4">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入调动后单位" v-model="search.moveLaterOrg">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="form-group">
+					    <label class="col-xs-2 control-label">罪犯姓名</label>
+					    <div class="col-xs-10">
+					    	<div>
+					      		<input class="form-control"  placeholder="请输入罪犯姓名" v-model="search.prisonerName">
+					      	</div>
+					    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="buttons">
+		    <a class="hbtn btn_primary btn_mini pull-right" @click="searchDb()"><i class="btn_icon icon_search"></i><span>查询</span></a>
+		</div>
+	</div>
+	<!-- 详情面板 -->
+	<div class="vbox hz-col-1" id="show_panel" style="display:none;">
+		<div class="hz-col-8" style="overflow: auto;" id="overflow">
+			<div class="panel-group" id="accordion" style="margin-bottom: 0px;">
+				<!-- 监狱上报信息 -->
+				<div class="panel panel-info" style="cursor:pointer;" data-toggle="collapse" id="jqsbMsg">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapse-contact-a" data-toggle="collapse" data-parent="#accordion"
+								href="#collapseReport"> 审批管理记录详情
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseReport" class="panel-collapse collapse in">
+						<div class="panel-body" style="padding: 0px;">
+							<table class="table table-bordered table-info">
+								<tr>
+									<td class="col-xs-2 td_title">审批序号</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.No"></td>
+									<td class="col-xs-2 td_title">调动类型</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.moveType"></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">审批事项</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.appro_event"></td>
+									<td class="col-xs-2 td_title">审批日期</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.checkTime"></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">审批状态</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.moveStatus"></td>
+									<td class="col-xs-2 td_title">当前审批人</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.prisonerName"></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">调动描述</td>
+									<td colspan="3" class="col-xs-4"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- 监狱管理局复核信息 -->
+				<div class="panel panel-info" style="cursor:pointer;" data-toggle="collapse" id="zhzxfhMsg">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="collapse-contact-a" data-toggle="collapse" data-parent="#accordion"
+								href="#ctrlCollapseReport"> 复核详情
+							</a>
+						</h4>
+					</div>
+					<div id="ctrlCollapseReport" class="panel-collapse collapse in">
+						<div class="panel-body" style="padding: 0px;">
+							<table class="table table-bordered table-info">
+								<tr>
+									<td class="col-xs-2 td_title">复核单位</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.checkOrgName"></td>
+									<td class="col-xs-2 td_title">复核时间</td>
+									<td class="col-xs-4" v-text="prisonerMoveApproveInfoShow.checkTime"></td>
+								</tr>
+								<tr>
+									<td class="col-xs-2 td_title">复核意见</td>
+									<td colspan="3" class="col-xs-10" v-text="prisonerMoveApproveInfoShow.checkOption"></td>
+								</tr>
+								
+							</table>
+						</div>
+					</div>
+					<div class="buttons">
+		    <a class="hbtn btn_primary btn_mini pull-right" @click="shDb()"><i class="btn_icon icon_save"></i><span>审核通过</span></a>
+		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/security/approveManage/prisonerMoveApproveInfo']);
+</script>

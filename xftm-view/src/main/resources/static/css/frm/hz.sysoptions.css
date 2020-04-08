@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.sys-options {
+	position: absolute;
+    top: 100px;
+    right: 110px;
+    width: max-content;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    background-color: rgba(42, 61, 82, .95);
+    background-clip: padding-box;
+    box-shadow: 0 0 5px #000;
+    z-index: 9;
+}
+
+.sys-options.show {
+	display: block !important;
+}
+.sys-options a.sys-options-btn {
+	float: right;
+	font-size: 1em; 
+	padding: 0px 10px 0px 40px; 
+	height: 35px; 
+	line-height: 35px; 
+	border-radius: 5px 0 0 5px; 
+	background:url(../images/data_config.png) 5px center no-repeat; 
+	cursor: pointer;
+}
+.sys-options a.sys-options-btn:hover,
+.sys-options a.sys-options-btn.open {color: #0FF; background-image: url(../images/data_config_h1.png);}
+.sys-options ul.sys-options-list {padding: 5px; cursor: default; list-style: none;}
+.sys-options ul.sys-options-list >li {margin-bottom: 1px;padding: 6px 15px 6px 32px; background: url(../images/data_config_uncheck.png) 10px center no-repeat;color: #aaa;}
+.sys-options ul.sys-options-list >li:hover {background-color: rgba(215, 216, 17, .2); color: #F2F2F2;}
+.sys-options ul.sys-options-list >li.checked {background-image: url(../images/data_config_checked.png); text-shadow: 0 1px 2px #000; color: #fff;}
+
+.sys-options-btn {background:url(../images/nav_config.png) 6px center no-repeat;}
+.sys-options-btn:hover, .sys-options-btn.open {background-image: url(../images/nav_config_h.png);}

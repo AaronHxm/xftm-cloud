@@ -17,6 +17,7 @@
         <module>xftm-api</module>
         <module>common-service</module>
         <module>common-client</module>
+      <module>xftm-view</module>
     </modules>
 
     <properties>

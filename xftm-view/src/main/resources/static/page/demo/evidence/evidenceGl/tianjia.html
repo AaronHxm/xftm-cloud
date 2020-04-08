@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/imp_common.css" charset="utf-8">
+
+<style>
+</style>
+<div class="hbox hz-col-1" id="tianjia">
+			<div style="width: 100%;height: 100%;">
+		       	<form class="form-horizontal"  style="margin-top:20px;overflow-x: hidden;height:80%; enctype="multipart/form-data"">
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	证据名称<span class="required" v-if="report.pd_day_total1.length==0">*</span>
+					    </label>
+					    <div class="col-sm-9">
+					      	 <input class="form-control" v-model="report.pd_day_total1" placeholder="请输入证据名称">
+					    </div>
+					</div>
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	证据类型<span class="required" v-if="report.pd_day_total2.length==0">*</span>
+					    </label>
+					    <div class="col-sm-9">
+					      	 <input class="form-control" v-model="report.pd_day_total2" placeholder="请输入证据类型">
+					    </div>
+					</div>
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	证据情况概述<span class="required" v-if="report.pd_day_total3.length==0">*</span>
+					    </label>
+					    <div class="col-sm-9">
+					      	 <input class="form-control" v-model="report.pd_day_total3" type="text" placeholder="请输入证据情况概述">
+					    </div>
+					</div>
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	上传图片<span class="required" v-if="report.pd_day_total4.length==0">*</span>
+					    </label>
+					    <div class="col-sm-9">
+					      	 <input type="file" name="photo" multiple>
+					    </div>
+					</div>
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	上传文档<span class="required" v-if="report.pd_day_total5.length==0">*</span>
+					    </label>
+					     
+					    <div class="col-sm-9">
+					      	 <input type="file" name="wendang"  multiple>
+					    </div>
+					</div>
+					<div class="form-group" style="margin-bottom: 30px;">
+					     <label class="col-sm-2 control-label">
+					    	上传视频<span class="required" v-if="report.pd_day_total6.length==0">*</span>
+					    </label>
+					    <div class="col-sm-9">
+					      	 <input type="file" name="shipin" multiple>
+					    </div>
+					</div>
+					
+				</form>
+				<div class="hz-col-2">
+				    <a class="hbtn btn_primary btn_mini pull-right" @click="saveReport()"  style="margin-right:30px;margin-bottom:20px"><i class="btn_icon icon_save"></i><span>保存</span></a>
+				</div>
+				
+	       	</div>
+		</div>
+
+		
+	
+
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script>
+requirejs(['hz/demo/evidence/evidenceGl/tianjia']); 
+ 
+ 
+</script>

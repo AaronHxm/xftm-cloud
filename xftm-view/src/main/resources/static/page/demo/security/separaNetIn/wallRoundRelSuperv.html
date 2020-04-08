@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<style>
+div#wallRoundRelSuperv {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.btn_large{
+	padding: 0px 5px;
+	height: 23px;
+	line-height: 19px;
+}
+div#wallRoundRelSuperv .col-xs-12{
+	position: absolute;
+	width: 96%;
+    height: 5%;
+    left: 2%;
+    top: 4%;	
+}
+div#wallRoundRelSuperv .vbox.hz-col-1{
+	position: absolute;
+	width: 96%;
+    height: 90%;
+    left: 2%;
+    top: 12%;	
+}
+</style>
+<div class="vbox box-con" id="wallRoundRelSuperv">
+	<div class="col-xs-12" style="padding: 10px 0px;text-align: center;height: 40px;">
+		<div style="width: 100px;float: left;font-weight: bold;">是否复核</div>
+	    <div style="width: 100px;float: left;">
+	    	<input type="radio" value="0" name="normal" checked="checked">&nbsp;&nbsp;是&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="1" name="normal">&nbsp;&nbsp;否&nbsp;&nbsp;&nbsp;
+	    </div>
+	    <div class="content" style="width: 100px;float: left;font-weight: bold;display: none;">反馈信息</div>
+	    <div class="content" style="width: 400px;float: left;display: none;">
+	    	<input class="form-control" id="patrolContent" placeholder="请填写反馈信息" style="height: 24px;"/>
+	    </div>
+	    <div style="width: 100px;float: left;">
+	    	<a class="hbtn btn_primary btn_large" @click="opencheck()"><i class="btn_icon icon_save"></i><span>复核</span></a>
+	    </div>
+	</div>
+	<div class="vbox hz-col-1">
+		<table id="wallRoundInfo"></table>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script>
+	requirejs(["hz/demo/security/separaNetIn/wallRoundRelSuperv"]);
+</script>

@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<title>运维记录</title>
+<style type="text/css">
+div#cmd_video_ssdm{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+}
+.table{
+	margin-bottom: 0px;
+}
+.table-bordered tbody tr td{
+    border: 1px solid #1f699e;
+    text-align: center;
+    font-size:14px;
+}
+.table-bordered tbody tr .td_title{
+	font-size: 13px;
+	font-weight: bold;
+}
+.table-info tbody tr td{
+	vertical-align: middle;
+}
+.prisonCollectDiv{
+	float:left;
+	margin-left:25px;
+}
+.title{
+	background-color:rgba(23, 47, 61, 0.7);
+	width:9%;
+	height:8%;
+	border:1px solid #1f699e;
+	margin-left:1px;
+	margin-top:2px;
+}
+.title2{
+	width:115px;
+	height:28px;
+}
+</style>
+<div id="cmd_video_ssdm" v-cloak>
+	<table id="table" style="padding-left:10px;padding-right:10px;width:100%;"></table>
+	
+	<div id="prList" style="display: none;">
+		<div class="hz-col-1" id="prisonerListHeader" style="width:100%;">
+			<table class="table table-bordered table-info" style="width:100%;">
+				<tr style="width:100%;">
+					<td>在监:<span>{{msgHeader.a}}</span></td>
+					<td>应点:<span>{{msgHeader.b}}</span></td>
+					<td>剩余:<span>{{msgHeader.c}}</span></td>
+					<td>已耗<span>{{msgHeader.d}}</span>分钟</td>
+					<td><span>{{msgHeader.e}}</span></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="hz-col-1" id="eleAttendancePrisonerList">
+			<div class="col-xs-10" style="float:left;height:91%;padding-left:0px;">
+				<div id="attPrisonerList" style="height:100%;border:1px solid #1f699e;overflow:hidden;">
+					<div id="attPrisoner" style="overflow-y:auto;overflow-x:hidden;height:91%;width:100%;">
+						<button v-for="attPrisoner in attPrisoners" @click="showPrisonerTempFlow(attPrisoner)" class="title" id="{{attPrisoner.prisoner_id}}">{{attPrisoner.prisoner_name}}<button>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2" style="float:left;height:91%;border:1px solid #1f699e">
+				<div style="height:42%;">
+					<img id="calling_img" alt="" src="" width="100%" height="100%" style="padding: 10px 10px;">
+				</div>
+				<div style="height:53%; width:100%;border-top:2px solid #1f699e;padding-top:2px;">
+					<div class="col-xs-12" style="padding-left:0px;padding-right:0px;height:105%;">
+						<div id="yds" style="overflow-y:auto;overflow-x:hidden;height:100%;width:100%;text-align: center;">
+							<button class="title title2" v-for="pr in prs" id="yd_{{pr.prisoner_id}}">{{pr.prisoner_name}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/cmd/cmd_video/cmd_ssdm']);
+</script>

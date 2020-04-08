@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/imp/menus/menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<title>审批统计</title>
+<style type="text/css">
+div#cmd_alarm_tjfx{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.col-xs-12, .col-xs-8, .col-xs-4{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.tjfx_right{
+	margin-top:5px;
+	margin-left:5px;
+	margin-bottom:5px;
+	margin-right:0px;
+	border:1px solid #0095ff;
+	height:97%;
+	width:97%;
+	border-radius: 5px;
+}
+.tjfx_left{
+	margin-top:5px;
+	margin-left:5px;
+	margin-bottom:5px;
+	margin-right:0px;
+	border:1px solid #0095ff;
+	height:45vh;
+	width:99%;
+	border-radius: 5px;
+}
+div.tjfx_right:hover, div.tjfx_left:hover{
+	border: 1px solid #8599e4;
+	box-shadow: 1px 1px 1px #8599e4;
+}
+</style>
+<div id="tjcx" v-cloak>
+	<div class="hbox hz-col-1" style="padding-top:10px;">
+		<div class="col-xs-12" style="padding-left:10px;">{{date.year}} 年 {{date.month}} 月 {{date.day}} 日&nbsp;&nbsp;&nbsp;1900条</div>
+	</div>
+	<div class="hbox hz-col-1" style="height:46%;">
+		<div class="col-xs-8">
+			<div  id="alarm_count" class="tjfx_left">
+				<div class="zd_title">
+					<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+						<thead>
+							<tr>
+								<th colspan="2" style="color:#ffd343;">审批情况统计</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div id="alarm_count_map" style="width:100%;height:83%"></div>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<div id="alarm_type" class="tjfx_right">
+				<div class="zd_title">
+					<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+						<thead>
+							<tr>
+								<th colspan="2" style="color:#ffd343;">审批效率分析</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div id="alarm_type_map" style="width:100%;height:83%"></div>
+			</div>
+		</div>
+	</div>
+	<div class="hbox hz-col-1" style="height:46%;">
+		<div class="col-xs-8">
+			<div id="alarm_time" class="tjfx_left">
+				<div class="zd_title">
+					<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+						<thead>
+							<tr>
+								<th colspan="2" style="color:#ffd343;">审批统计分析</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div id="alarm_time_map" style="width:100%;height:83%"></div>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<div id="alarm_dispose" class="tjfx_right">
+				<div class="zd_title">
+					<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+						<thead>
+							<tr>
+								<th colspan="2" style="color:#ffd343;">审批方式统计</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div id="alarm_dispose_map" style="width:100%;height:83%"></div>
+			</div>
+		</div>
+	</div>
+	<div id="tableDiv" style="display: none;"></div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/security/approveManage/sptj']);
+</script>

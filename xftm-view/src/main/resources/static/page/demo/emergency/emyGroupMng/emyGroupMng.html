@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_menus.css" charset="utf-8">
+<style type="text/css">
+div#emyGroupMng{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	height:100%;
+	overflow: hidden;
+	
+}
+.selected{
+	font-size:14px;
+    color:#ffd343;
+    background:#000;
+}
+.win_body{
+	
+}
+</style>
+<div id="emyGroupMng">
+	<div>
+		<div class="win_top">
+			<ul id="menusTwo" class="menus2 clearfix">
+				<li class="menus2_li" v-cloak v-for="M in menuListThree" id="{{M.id}}" @click="openMenu(M)" >{{M.name}}</li>
+			</ul>
+		</div>
+		<div class="win_body">
+			<iframe id="winIframe" class="frm-content" src="situation.html"></iframe>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/demo/emergency/emyGroupMng/emyGroupMng']);
+</script>

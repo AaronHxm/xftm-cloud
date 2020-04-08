@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../libs/bootstrap/css/bootstrap-table.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/common.css" charset="utf-8">
+<link rel="stylesheet" href="../../../../css/comm_table.css" charset="utf-8">
+<style type="text/css">
+div#dangerResAnalysis {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+div#dangerResAnalysis div.main_left {
+	position: absolute;
+	width: 47%;
+	height: 96%;
+	left: 2%;
+	top: 2%;
+	bottom: 2%;
+}
+div#dangerResAnalysis div.main_right {
+	position: absolute;
+	width: 47%;
+	height: 96%;
+	left: 51%;
+	top: 2%;
+	bottom: 2%;
+}
+
+div#dangerResAnalysis div.main_left div.main_left_top {
+	position: absolute;
+	width: 100%;
+	height: 49%;
+	top: 0%;
+}
+
+div#dangerResAnalysis div.main_left div.main_left_bottom {
+	position: absolute;
+	width: 100%;
+	height: 49%;
+	top: 51%;
+}
+div#dangerResAnalysis div.main_right div.main_right_top {
+	position: absolute;
+	width: 100%;
+	height: 49%;
+	top: 0%;
+}
+
+div#dangerResAnalysis div.main_right div.main_right_bottom {
+	position: absolute;
+	width: 100%;
+	height: 49%;
+	top: 51%;
+}
+div#dangerResAnalysis div.main_left div.main_left_top,div#dangerResAnalysis div.main_left div.main_left_bottom,
+div#dangerResAnalysis div.main_right div.main_right_top,div#dangerResAnalysis div.main_right div.main_right_bottom{
+	background-image: url(../../../../css/images/box1.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+div#dangerResAnalysis div.main_left div.main_left_top:hover,div#dangerResAnalysis div.main_left div.main_left_bottom:hover,
+div#dangerResAnalysis div.main_right div.main_right_top:hover,div#dangerResAnalysis div.main_right div.main_right_bottom:hover{
+	background-image: url(../../../../css/images/box1_1.png);
+}
+
+
+</style>
+<div id="dangerResAnalysis" class="vbox box-con">
+	<div class="main_left">
+		<div class="main_left_top">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">危险品种类分析</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="dangerRecType" style="height: 100%;width: 100%"></div>
+		</div>
+		<div class="main_left_bottom">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">危险品进监趋势</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="dangerResRec" style="height: 100%;width: 100%"></div>
+		</div>
+	</div>
+	<div class="main_right">
+		<div class="main_right_top">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">各监发生次数分布</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="dangerResHappTime" style="height: 100%;width: 100%"></div>	
+		</div>
+		<div class="main_right_bottom">
+			<div class="zd_title">
+				<table cellspacing = "0" class="mine_table" style="margin-bottom: 0;">
+					<thead>
+						<tr>
+							<th colspan="2" style="color:#ffd343;">近一月危险品进监分析</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div id="dangerResInPrisonMonthPei" style="height: 100%;width: 100%"></div>		
+		</div>
+	</div>
+	<div class="vbox box-con" id="danger_panel" style="display:none;">
+		<div id="dangerDiv" class="hz-col-1" style="margin-top: 10px;height: auto;padding:5px;" >
+	       	<table id="dangerTb"></table>
+       	</div>
+	</div>
+</div>
+<script type="text/javascript" src="../../../../js/require.js"></script>
+<script type="text/javascript" src="../../../../js/config.js"></script>
+<script>
+	requirejs(['hz/demo/security/dangerResInOut/dangerResAnalysis']);
+</script>
