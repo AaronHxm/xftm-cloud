@@ -6,18 +6,33 @@
 				其中 key 即为调用时的虚拟目录
 				如下方的 'hz':'../js/src' 在页面调用 requirejs(['hz/home/index']);其实就是加载的 js/src/home/index.js
 */
-var ip = window.document.location.href;	// 前端页面访问地址
-ip = "http://crm.xianfengtaimeng.com:9511/";
-var prjName = 'aaaaa';
-var prjNameB = 'aaaaa';
-var basePath = ctx = ip + prjName + '/';
+// var ip = window.location;	// 前端页面访问地址
+// ip = ip.replace("http://").replace("https://")
+// ip = ip.substring(ip.indexOf("/")+1);
 
+
+// 获取网络协议
+var protocol = window.location.protocol;
+// 获取主机名+端口号
+var domainPort = window.location.host;
+// 获取发布项目的名称
+// 获取路径
+var url = window.location.pathname;
+var webApp = url.split('/')[1];
+// http://127.0.0.1/demo
+var urlPrefix = protocol + "//" + domainPort + "/" + webApp;
+
+// ip = "http://crm.xianfengtaimeng.com:9511/";
+var prjName = webApp;
+var prjNameB = webApp;
+var basePath = ctx = protocol + "//" + domainPort + "/"  + prjName + '/';
+var ip = protocol + "//" + domainPort + "/";
 var wip = ip;	// 前端页面访问地址
 var bip = ip;	// 后台数据访问的地址
 var mip = ip;	// 地图数据访问的地址
 
-var WURL =  wip + 'aaaaa/';		// 前端统一资源URL
-var BURL =  bip + 'aaaaa/';		// 后台统一资源URL
+var WURL =  protocol + "//" + domainPort + "/"+ webApp;		// 前端统一资源URL
+var BURL =   protocol + "//" + domainPort + "/"+ webApp;		// 后台统一资源URL
 
 var mapBasePath = 'http://' + mip + ':8080/MapResource/';	// 地图资源文件访问根URL
 var pathFindingURL = mapBasePath + 'mesh-data/';			// 地图寻路资源文件访问的URL
