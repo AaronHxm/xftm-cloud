@@ -42,7 +42,7 @@ requirejs.config({
 	'baseUrl': WURL + '/libs',
 	'paths': {
 	  	'hz.frm': '../js/hz.frm',//内部核心框架库
-		'hz':'../js/src',
+		'xftm':'../js/src',
 		'sys':'../js/src/sys',
 		'cds':'../js/src/cds',
 		'frm':'../js/frm',

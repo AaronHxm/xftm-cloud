@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -32,6 +34,19 @@ public class Application {
 //      registry.addViewController(name).setViewName("forward:/index.html");
 //      registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 //      super.addViewControllers(registry);
+//    }
+//  }
+//
+//  @Configuration
+//  public class WebResoucesConfig extends WebMvcConfigurationSupport
+//  {
+//
+//    @Override
+//    protected void addResourceHandlers(
+//        ResourceHandlerRegistry registry
+//    ) {
+//      registry.addResourceHandler("/static/**").
+//          addResourceLocations("classpath:/static/");
 //    }
 //  }
 }
