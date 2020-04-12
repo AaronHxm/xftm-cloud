@@ -13,3 +13,5 @@ xftm-cloud 框架包含
 Api接口文档---Swagger
 系统日志---logback
 web---bootstarp+vue+layer+require+ztree+jq+echarts
+
+版本关系
