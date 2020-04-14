@@ -9,20 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>xftm-view</artifactId>
+  <artifactId>xftm-common</artifactId>
 
-  <dependencies>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>2.2.4.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xftm</groupId>
-      <artifactId>xftm-sys</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
 
 </project>

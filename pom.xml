@@ -18,6 +18,8 @@
         <module>common-service</module>
         <module>common-client</module>
       <module>xftm-view</module>
+      <module>xftm-common</module>
+        <module>xftm-sys</module>
     </modules>
 
     <properties>
@@ -64,6 +66,12 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>6.3</version>
             </dependency>
 
             <!--&lt;!&ndash;健康检查依赖于此包&ndash;&gt;-->
