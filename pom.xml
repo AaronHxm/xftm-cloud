@@ -19,7 +19,6 @@
         <module>common-client</module>
       <module>xftm-view</module>
       <module>xftm-common</module>
-        <module>xftm-sys</module>
     </modules>
 
     <properties>

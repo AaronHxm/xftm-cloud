@@ -1,9 +1,9 @@
-package org.xftm.service;
+package org.xftm.sys.service;
 
 import org.springframework.stereotype.Service;
 import org.xftm.bean.ResultInfo;
-import org.xftm.po.UserPo;
-import org.xftm.vo.UserVo;
+import org.xftm.sys.po.UserPo;
+import org.xftm.sys.vo.UserVo;
 
 /**
  * @author : Aaron
@@ -21,7 +21,7 @@ public interface UserService {
    * @param pwd 用户密码
    * @return
    */
-  ResultInfo<UserVo> loginByUserNameAndPwd(String userName,String pwd);
+  ResultInfo<UserVo> loginByUserNameAndPwd(String userName, String pwd);
 
 
   /**

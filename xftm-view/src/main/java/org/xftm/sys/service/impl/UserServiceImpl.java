@@ -1,12 +1,13 @@
-package org.xftm.service.impl;
+package org.xftm.sys.service.impl;
 
-import java.util.Queue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.xftm.bean.ResultInfo;
 import org.xftm.enums.StatusCodeEnum;
-import org.xftm.po.UserPo;
-import org.xftm.service.UserService;
-import org.xftm.vo.UserVo;
+import org.xftm.sys.po.UserPo;
+import org.xftm.sys.service.UserService;
+import org.xftm.sys.vo.UserVo;
 
 /**
  * @author : Aaron
@@ -17,6 +18,8 @@ import org.xftm.vo.UserVo;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+  private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
   /**
    * 根据用户名和密码 验证是否登陆
@@ -31,6 +34,7 @@ public class UserServiceImpl implements UserService {
     if(userPo ==null){
 
         ResultInfo<UserVo> resultInfo =  new ResultInfo<UserVo>(StatusCodeEnum.NOT_FOUND);
+
         return resultInfo;
     }
     ResultInfo<UserVo> resultInfo =  new ResultInfo<UserVo>(StatusCodeEnum.OK);

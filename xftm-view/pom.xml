@@ -20,7 +20,7 @@
     </dependency>
     <dependency>
       <groupId>org.xftm</groupId>
-      <artifactId>xftm-sys</artifactId>
+      <artifactId>xftm-common</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>

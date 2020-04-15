@@ -1,4 +1,4 @@
-package org.xftm.vo;
+package org.xftm.sys.vo;
 
 /**
  * @author : Aaron
