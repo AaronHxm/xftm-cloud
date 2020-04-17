@@ -38,8 +38,25 @@ public class UserCtrl {
   }
 
 
+  public static int Sum_Solution1(int n){
+    int res = n;
+    boolean flag = (n>0)&&((res+=Sum_Solution2(n-1))>0);
+    return res;
+  }
 
+  //库函数
+  public static int Sum_Solution2(int n){
 
+    int sum = (int)(Math.pow(n, 2)+n);
+    int a = sum>>1;
+    System.out.println(a);
+    return a;
+  }
+
+  public static void main(String[] args) {
+    UserCtrl userCtrl = new UserCtrl();
+    System.out.println(UserCtrl.Sum_Solution1(10));
+  }
 }
 
 
